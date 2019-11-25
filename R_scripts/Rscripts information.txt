@@ -1,0 +1,10 @@
+1. Run Connetct.R 
+   R_scripts > DataForamtting > Connect.R
+
+   *This will create frequency tables for each virus/gene in output/Csv as a csv format 
+
+2. Run MakeWilcoxTables.R
+
+
+3. Create figures
+   1) R_scripts > graphs > M_frequency_graph.R
