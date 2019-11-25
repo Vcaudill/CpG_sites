@@ -2,7 +2,8 @@ Freq <- function(fasta_file){
   library(seqinr) 
   virus_basic <- read.fasta(fasta_file)
   number_of_seqs <- length(virus_basic)
-  cat("number_of_seqs", number_of_seqs)
+  cat("number_of_seqs:", number_of_seqs, "\n")
+
   virus_align <- read.alignment(fasta_file, format = "fasta", forceToLower = T)
   virus_consensus <- seqinr :: consensus(virus_align, method = "majority")
   #virus_ancesertal=specfic line in a csv file from victoria
@@ -32,7 +33,3 @@ Freq <- function(fasta_file){
   return(virus_DF)
 }
 
-#made by 11 AM dengue team
-
-#example
-#Freq("virusViruses/virusVirus1.fasta")

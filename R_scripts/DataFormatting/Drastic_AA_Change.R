@@ -1,5 +1,3 @@
-#Team: Livia, Gabriella, Deshawn
-
 
 ###Big AA change###
 big_aa_change <- function(df){

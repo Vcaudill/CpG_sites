@@ -1,9 +1,3 @@
-#comment
-
-## Group # 1 ( 9am) - makesCpG Sites Function
-## Contributior - Jacky, Sarina, Preeti, Andrea
-
-
 ######## Investigating makesCpG sites: 
 
 ## Note : this function assumes that wtnt column is present in the 
