@@ -1,8 +1,6 @@
 # your floder where all pages are saved
 #setwd("~/Desktop/Git/CpG/Something_Cool-CpG_Sites-")
-
-
-#loop using a csv to find the file name, strating and stoping points, and readign frame
+#cycle thiygh the data folder
 
 Virus_info<- read.csv("data/list/Final_CpG_list.csv")
 # DataSet <-read.fasta("DengueVirus1.fasta_pruned.mu.trim05.txt")
