@@ -60,7 +60,7 @@ splitname<-unlist(strsplit(virusname,".fasta"))
 truename<-splitname[1]
 
 #truenameRda= paste('data/Rda/', truename, ".Rda", sep="")
-truenameCSV= paste('data/data_2019/data_used/Csv/', truename, ".csv", sep="")
+truenameCSV= paste('data/output/Csv/', truename, ".csv", sep="")
 #write.csv(DF, file = "MyData.csv")
 
 #setwd("~/Desktop/Git/CpG/Something_Cool-CpG_Sites-/Rda_Files")
