@@ -1,0 +1,43 @@
+﻿File,Number_of_Sequences,Number_of_Nucleotides,name
+BKPolyomavirus_VP1.fasta,222,1089,Bk Polyoma VP1
+Denguevirus1.fasta,1785,10176,Dengue 1
+Denguevirus2.fasta,1597,10173,Dengue 2
+Denguevirus3.fasta,970,10170,Dengue 3
+Denguevirus4.fasta,257,10206,Dengue 4
+EnteroD68_VP1.fasta,528,546,Entero D68 VP1
+Enterovirus_C_VP2_Polio2.fasta,574,813,Entero C VP2 Polio2
+EnterovirusA_VP1_EVA71.fasta,3868,894,Entero A VP1 EVA71
+EnterovirusA_VP2_EVA71.fasta,575,294,Entero A VP2 EVA71
+EnterovirusB_VP1_Echovirus30.fasta,2429,876,Entero B VP1 Echovirus30
+EnterovirusB_VP2.fasta,414,750,Entero B VP2 Echovirus30
+EnterovirusC_VP1_Polio2.fasta,1346,906,Entero C VP1 Polio2
+HCV1A_CDS_Alignment.fasta,415,9033,HCV 1 A
+HCV1B_CDS_alignment.fasta,243,9033,HCV 1 B
+HBV_A_Polymerase.fasta,264,852,HBV A Polymerase
+HBV_A_S.fasta,263,837,HBV A S
+HBV_B_Polymerase.fasta,300,909,HBV B Polymerase
+HBV_B_PreC-Core.fasta,345,639,HBV B PreC-Core
+HBV_C_polymerase.fasta,500,1635,HBV C polymerase
+HBV_C_PreC-Core.fasta,584,639,HBV C PreC-Core
+HBV_C_S.fasta,1113,834,HBV C S
+HIV1_FLT_2017_pol_DNA.fasta,2956,3231,HIV pol Gene
+HumanBoca_VP1.fasta,212,2013,Human Boca 1 VP1
+HumanHerpesvirus2_G.fasta,302,1317,Herpes 2 Glycoprotein G
+HumanPapilloma16_L1.fasta,1105,1518,Human Papilloma 16 L1
+Human_Parainfluenza3_HN.fasta,1403,1725,Human Parainfluenza 3 HN
+HumanParainfluenzavirus1_CDS_only.fasta,99,14397,Human Parainfluenza 1
+HumanRespiratorySyncytial_CDS.fasta,1071,13437,Human Respiratory Syncytial
+InfluenzaAvirus_HA_H1N1_alignment.fasta,19095,1710,Influenza A HA H1N1
+InfluenzaAvirus_HA_H3N2_alignment.fasta,24005,1701,Influenza A HA H3N2
+InfluenzaAvirus_NA_H1N1_alignment.fasta,19226,1410,Influenza A NA H1N1
+InfluenzaAvirus_NA_H3N2_alignment.fasta,2428,1407,Influenza A NA H3N2
+InfluenzaB_HA.fasta,1054,1755,Influenza B HA
+InfluenzaB_NA.fasta,3914,1398,Influenza B NA
+Measles_hemagglutinin_alignment.fasta,876,1851,Measles HH
+Parainfluenza1_HN.fasta,340,1728,Human Parainfluenza 1 HN
+Parainfulenza3_CDS.fasta,461,14469,Human Parainfluenza 3
+ParovirusB19_NS1_alignment.fasta,175,2016,Parvo B19 NS1
+Parovovirus_B19_VP1_alignment.fasta,268,2343,Parvo B19 VP1
+RhinovirusB alignment.fasta,41,6579,Rhino B
+RhinovirusC.fasta,120,6531,Rhino C
+RotavirusA_VP6_alignment.fasta,4350,1197,Rota A VP6
