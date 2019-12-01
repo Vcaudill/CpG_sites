@@ -5,13 +5,17 @@ source("R_scripts/DataFormatting/Drastic_AA_Change.R")
 source("R_scripts/DataFormatting/CPG_Function.R")
 source("R_scripts/DataFormatting/SynNonSyn.R")
 
+ancestor<-read.csv("output/Final_CpG_List.csv")
+
 #Cycle through the data folder
 Virus_info<- list.files("data/", pattern=".fasta")
+
+
 for(i in 1:length(Virus_info)){
   print(i)
-  
+  ancestor_line<-ancestor[grep(Virus_info[1], ancestor$File), ]
   viruplace = paste0("data/",Virus_info[i])
-  DF<-Freq(viruplace)
+  DF<-Freq(viruplace, ancestor_line$ancestor_seq)
   name <- as.character(Virus_info[i])
   truename<-unlist(strsplit(as.character(Virus_info[i]),".fasta"))
  
