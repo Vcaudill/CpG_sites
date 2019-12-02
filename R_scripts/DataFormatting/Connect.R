@@ -10,7 +10,7 @@ ancestor<-read.csv("output/Final_CpG_List.csv")
 ancestor2<-data.frame("File"=character(),"ca"=integer(),"tg"=integer(),"ancestor_ca"=integer(),"ancestor_tg"=integer())
 #Cycle through the data folder
 Virus_info<- list.files("data/", pattern=".fasta")
-i=2
+
 for(i in 1:length(Virus_info)){
   print(Virus_info[i])
   ancestor_line<-ancestor[grep(Virus_info[i], ancestor$File), ]
