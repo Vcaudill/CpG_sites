@@ -10,8 +10,8 @@ for(i in 1:length(Virus_info)){
  
   Name<-Virus_info_names[grep(strsplit(Virus_info[i],".csv"), Virus_info_names$File), ]
   truename<-unlist(strsplit(as.character(Virus_info[i]),".csv"))
-  table_output<- "output/WilcoxTables/"
-  graph_output<-"output/M_frequency_graphs/"
+  table_output<- "output/ancestor/WilcoxTables/"
+  graph_output<-"output/ancestor/M_frequency_graphs/"
   #table
   DF=Tables(truename, paste0('output/Csv/',Virus_info[i]))
   Pvalues=Wilcox_test(DF, truename)#get error x must be numeric

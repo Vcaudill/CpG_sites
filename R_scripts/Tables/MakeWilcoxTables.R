@@ -1,6 +1,8 @@
 
 #This function is going to read the data from the csv files 
-
+#makesCpG <-> ancestor_makesCpG
+#wtnt_consensus<->ancestor
+#TypeOfSite<->ancestor_TypeOfSite
 Tables = function(truename, csv_file){ 
   #setwd("..")
   #truename ="Humanherpesvirus2_gD"
@@ -29,14 +31,14 @@ Wilcox_test = function(data, truename){
   options(scipen=999)
   #prevents pvalues from becoming scientific notation. 
   
-  array1 = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'syn' & data$makesCpG == 1]
-  array2 = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'syn' & data$makesCpG == 0]
-  array3 = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'nonsyn' & data$makesCpG == 1]
-  array4 = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'nonsyn' & data$makesCpG == 0]
-  syna = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'syn']
-  nonsyna = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'nonsyn']
-  CpGa = data$Freq[data$wtnt_consensus =="a" & data$makesCpG == 1]
-  nonCpGa = data$Freq[data$wtnt_consensus =="a" &  data$makesCpG == 0]
+  array1 = data$Freq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'syn' & data$ancestor_makesCpG == 1]
+  array2 = data$Freq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'syn' & data$ancestor_makesCpG == 0]
+  array3 = data$Freq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'nonsyn' & data$ancestor_makesCpG == 1]
+  array4 = data$Freq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'nonsyn' & data$ancestor_makesCpG == 0]
+  syna = data$Freq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'syn']
+  nonsyna = data$Freq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'nonsyn']
+  CpGa = data$Freq[data$ancestor =="a" & data$ancestor_makesCpG == 1]
+  nonCpGa = data$Freq[data$ancestor =="a" &  data$ancestor_makesCpG == 0]
   
   print("For a: Comparing makes CpG with noCpG (syn). Wilcox test less: red/blue")
   print(wilcox.test(array1, array2, alternative='less'))
@@ -52,14 +54,14 @@ Wilcox_test = function(data, truename){
   pVals = c(pVals,format(wilcox.test(syna, nonsyna, alternative='greater')$p.value, nsmall = 6))
   print(pVals)
   
-  array5 = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'syn' & data$makesCpG == 1]
-  array6 = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'syn' & data$makesCpG == 0]
-  array7 = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'nonsyn' & data$makesCpG == 1]
-  array8 = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'nonsyn' & data$makesCpG == 0]
-  synt = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'syn']
-  nonsynt = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'nonsyn']
-  CpGt = data$Freq[data$wtnt_consensus =="t" & data$makesCpG == 1]
-  nonCpGt = data$Freq[data$wtnt_consensus =="t" &  data$makesCpG == 0]
+  array5 = data$Freq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'syn' & data$ancestor_makesCpG == 1]
+  array6 = data$Freq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'syn' & data$ancestor_makesCpG == 0]
+  array7 = data$Freq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'nonsyn' & data$ancestor_makesCpG == 1]
+  array8 = data$Freq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'nonsyn' & data$ancestor_makesCpG == 0]
+  synt = data$Freq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'syn']
+  nonsynt = data$Freq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'nonsyn']
+  CpGt = data$Freq[data$ancestor =="t" & data$ancestor_makesCpG == 1]
+  nonCpGt = data$Freq[data$ancestor =="t" &  data$ancestor_makesCpG == 0]
   
   print("For t: Comparing makes CpG with noCpG (syn). Wilcox test less: red/blue")
   print(wilcox.test(array5, array6, alternative='less'))
