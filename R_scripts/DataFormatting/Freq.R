@@ -12,8 +12,9 @@ Freq <- function(fasta_file, ancestor_seq){
   virus_consensus_matrix <- seqinr :: consensus(virus_align, method = "profile")
   virus_ancestor_matrix <- seqinr :: consensus(virus_align, method = "profile")
   consensus_length <- length(virus_consensus)
+  #length(virus_ancestor_seq)
   number_column <- seq(1, consensus_length)
-  virus_DF <- data.frame("num" = number_column, "Freq" = 0, "wtnt_consensus" = virus_consensus,"aFreq" = 0, "ancestor"= "wtnt_ancestor")
+  virus_DF <- data.frame("num" = number_column, "Freq" = 0, "wtnt_consensus" = virus_consensus,"aFreq" = 0, "ancestor"= virus_ancestor_seq)
  
   for(x in 1:consensus_length){
     current_base <- virus_consensus[x]

@@ -1,7 +1,7 @@
 
-comparing_CpG_Syn_Nonsyn_new = function(truename,nice_name,data_place,data_output){
+comparing_CpG_Syn_Nonsyn_new = function(truename,nice_name,csv,data_output){
   # place is srting of text like where file should be /new_data/folder
-  data<- read.csv(paste(data_place, truename,".csv", sep=""))
+  data<- read.csv(csv)
   #subset into two groups yes makes cpg and no cpg
   cpg.y<-subset(data, makesCpG==1)
   cpg.n<-subset(data, makesCpG==0)
@@ -145,15 +145,6 @@ comparing_CpG_Syn_Nonsyn_new = function(truename,nice_name,data_place,data_outpu
   AllG$LCLS = AllG$mean_value - AllG$sem_vals
   AllG$UCLS = AllG$mean_value + AllG$sem_vals
   ####################################################################################
-  #layout(matrix(c(1,2,3,4), 2, 2, byrow = TRUE))
-  # make 2 dataset 1 conting everything except 0's (Freq needs to be log)
-  # datea set just for Freq = 0's
-  # graph it with breaks 
-  # add a key
-  # make it more like jitter
-  # try to make points transparent 30% via alpha or make error darker in color
-  # make bars the same width
-  # try to get good png size 
   
   library(scales)
   library(plotrix)

@@ -1,3 +1,6 @@
+
+
+
 source("R_scripts/DataFormatting/Freq.R")
 source("R_scripts/DataFormatting/WTAA_consensus.R")
 source("R_scripts/DataFormatting/MUTAA.R")
@@ -10,16 +13,16 @@ ancestor<-read.csv("output/Final_CpG_List.csv")
 #Cycle through the data folder
 Virus_info<- list.files("data/", pattern=".fasta")
 
-
 for(i in 1:length(Virus_info)){
-  print(i)
-  ancestor_line<-ancestor[grep(Virus_info[1], ancestor$File), ]
+  print(Virus_info[i])
+  ancestor_line<-ancestor[grep(Virus_info[i], ancestor$File), ]
   viruplace = paste0("data/",Virus_info[i])
   DF<-Freq(viruplace, ancestor_line$ancestor_seq)
   name <- as.character(Virus_info[i])
   truename<-unlist(strsplit(as.character(Virus_info[i]),".fasta"))
  
   DF$wtnt_consensus<-as.character(DF$wtnt_consensus)
+  DF$ancestor<-as.character(DF$ancestor)
   DF$Virus<-(truename)
 
   DF<-getWTAA(DF)

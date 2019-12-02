@@ -1,16 +1,12 @@
 
-# my.list <- list(DengueVirus1, DengueVirus2, DengueVirus3, DengueVirus4, HepatitisCvirus_1A, HepatitisCvirus_1B, HIV_1, humanparainfluenzavirus1_F, humanparainfluenzavirus1_HN, humanparainfluenzavirus3_HN, humanparainfluenzavirus1, humanparainfluenzavirus3, InfluenzaAvirus_HA_H1N1,InfluenzaAvirus_HA_H3N2, InfluenzaAvirus_NA_H1N1, InfluenzaAvirus_NA_H3N2,InfluenzaBvirus_HA, InfluenzaBvirus_NA, EnterovirusA_VP1, EnterovirusA_VP2,EnterovirusB_VP1, EnterovirusB_VP2,EnterovirusC_VP1,EnterovirusC_VP2,EnterovirusD_VP1, Humanrespiratorysyncytialvirus, Humanrespiratorysyncytialvirus_G, Measles_hemagglutinin_OR_haemagglutinin, RhinovirusB, RhinovirusC, RotavirusA_VP6, BKpolyomavirus_VP1, HumanBocavirus1_VP1, HepatitisB_polymerase,HepatitisB_precore,HepatitisB_polymerase_truncated_precore,HepatitisB_s,HepatitisB_pre_S,HepatitisB_core, Humanherpesvirus2_glycoprotein_G, Humanpapillomavirus16_L1, ParvovirusB19_NS1, ParvovirusB19_VP1)
-name.list <- c('Dengue 1', 'Dengue 2', 'Dengue 3', 'Dengue 4', "HCV1A", "HCV1B", "HIV pol gene", 'Human Parainfluenza 1 F', 'Human Parainfluenza 1 HN', 'Human Parainfluenza 3 HN', 'Human Parainfluenza 1', 'Human Parainfluenza 3', 'Influenza A H1N1 HA','Influenza A H3N2 HA', 'Influenza A H1N1 NA', 'Influenza A H3N2 NA','Influenza B HA', 'Influenza B NA', 'Entero A VP1', 'Entero A VP2','Entero B VP1', 'Entero B VP2','Entero C VP1','Entero C VP2','Entero D VP1', 'Human Respiratory Syncytial', 'Human Respiratory Syncytial G', 'Measles HH', 'Rhino B', 'Rhino C', 'Rota A VP6', 'Bk Polyoma VP1', 'Human Boca 1 VP1', 'Hepatitis B Polymerase','Hepatitis B Precore','Hepatitis B PTP','Hepatitis B S','Hepatitis B PreS','Hepatitis B Core', 'Human Herpes 2 glycoprotein G', 'Human Papilloma 16 L1', 'Parvo B19 NS1', 'Parvo B19 VP1')
-#List of all virus names (name + .csv/Rda)
-#Virus_info<- read.csv("data/CpG_List.csv")
 #This function is going to read the data from the csv files 
 
-Tables = function(truename, place){ 
+Tables = function(truename, csv_file){ 
   #setwd("..")
   #truename ="Humanherpesvirus2_gD"
   truenamecsv= paste(truename, ".csv", sep="")
   print(truenamecsv)
-  DF<- read.csv(paste(place, truenamecsv, sep=""))
+  DF<- read.csv(csv_file)
   #if(DF<- read.csv(paste(place, truenamecsv, sep="")) == FALSE) {
     #DF<- read.csv(paste("data/data_2019/Csv/new_for_costly", truenamecsv, sep=""))}
   #}

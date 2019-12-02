@@ -8,7 +8,6 @@ library(sfsmisc)
 #fill virus info into excel sheet
 #_______
 BKpolyomavirus_VP1<-read.csv("data/data_2019/data_used/Csv/BKpolyomavirus_VP1.CSV")
-
 DengueVirus1 <- read.csv("data/data_2019/data_used/Csv/DengueVirus1.CSV")
 DengueVirus2<- read.csv("data/data_2019/data_used/Csv/DengueVirus2.CSV")
 DengueVirus3<-read.csv("data/data_2019/data_used/Csv/DengueVirus3.CSV")
@@ -60,24 +59,34 @@ RhinovirusB<-read.csv("data/data_2019/data_used/Csv/RhinovirusB alignment.csv")
 RhinovirusC<-read.csv("data/data_2019/data_used/Csv/RhinovirusC.csv")
 RotavirusA_VP6<-read.csv("data/data_2019/data_used/Csv/RotavirusA_VP6_alignment.csv")
 
-Virus_info<- read.csv("data/list/Final_CpG_list.csv")
+Virus_info<- read.csv("output/Final_CpG_list.csv")
 Virus_info$total=Virus_info$Number_of_Sequences*Virus_info$Number_of_Nucleotides
 
 my.list <- list(DengueVirus1, DengueVirus2, DengueVirus3, DengueVirus4, HepatitisCvirus_1A, HepatitisCvirus_1B, HIV_1, humanparainfluenzavirus1_HN, humanparainfluenzavirus3_HN, humanparainfluenzavirus1, humanparainfluenzavirus3, InfluenzaAvirus_HA_H1N1,InfluenzaAvirus_HA_H3N2, InfluenzaAvirus_NA_H1N1, InfluenzaAvirus_NA_H3N2,InfluenzaBvirus_HA, InfluenzaBvirus_NA, EnterovirusA_VP1, EnterovirusA_VP2,EnterovirusB_VP1, EnterovirusB_VP2,EnterovirusC_VP1,EnterovirusC_VP2,EnterovirusD_VP1, Humanrespiratorysyncytialvirus, Measles_hemagglutinin_OR_haemagglutinin, RhinovirusB, RhinovirusC, RotavirusA_VP6, BKpolyomavirus_VP1, HumanBocavirus1_VP1, HepatitisB_polymerase,HepatitisB_precore,HepatitisB_polymerase_truncated_precore,HepatitisB_s,HepatitisB_pre_S,HepatitisB_core, Humanherpesvirus2_glycoprotein_G, Humanpapillomavirus16_L1, ParvovirusB19_NS1, ParvovirusB19_VP1)
-#name.list <- list('DengueVirus1', 'DengueVirus2', 'DengueVirus3', 'DengueVirus4', 'humanparainfluenzavirus1_F', 'humanparainfluenzavirus1_HN', 'humanparainfluenzavirus3_HN', 'humanparainfluenzavirus1', 'humanparainfluenzavirus3', 'InfluenzaAvirus_HA_H1N1','InfluenzaAvirus_HA_H3N2', 'InfluenzaAvirus_NA_H1N1', 'InfluenzaAvirus_NA_H3N2','InfluenzaBvirus_HA', 'InfluenzaBvirus_NA', 'EnterovirusA_VP1', 'EnterovirusA_VP2','EnterovirusB_VP1', 'EnterovirusB_VP2','EnterovirusC_VP1','EnterovirusC_VP2','EnterovirusD_VP1', 'BKpolyomavirus_VP1', 'HumanBocavirus1_VP1', 'HepatitisB_polymerase','HepatitisB_precore','HepatitisB_ptp', 'HepatitisB_s','HepatitisB_pre_S','HepatitisB_core', 'Humanherpesvirus2_glycoprotein_G', 'Humanpapillomavirus16_L1', 'Humanrespiratorysyncytialvirus', 'Humanrespiratorysyncytialvirus_G', 'JCpolyomavirus_VP1', 'Measles_hemagglutin', 'ParvovirusB19_NS1', 'ParvovirusB19_VP1', 'RhinovirusB', 'RhinovirusB_polyprotein', 'RhinovirusC', 'RotavirusA_VP6')
+
 name.list <- list('Dengue 1', 'Dengue 2', 'Dengue 3', 'Dengue 4', "HCV 1 A", "HCV 1 B", "HIV pol Gene", 'Human Parainfluenza 1 HN', 'Human Parainfluenza 3 HN', 'Human Parainfluenza 1', 'Human Parainfluenza 3','Influenza A HA H1N1','Influenza A HA H3N2', 'Influenza A NA H1N1', 'Influenza A NA H3N2','Influenza B HA', 'Influenza B NA', 'Entero A VP1 EVA71', 'Entero A VP2 EVA71','Entero B VP1 Echovirus30', 'Entero B VP2 Echovirus30','Entero C VP1 Polio2','Entero C VP2 Polio2','Entero D68 VP1', 'Human Respiratory Syncytial', 'Measles HH', 'Rhino B', 'Rhino C', 'Rota A VP6', 'Bk Polyoma VP1', 'Human Boca 1 VP1', 'Hepatitis B Polymerase','Hepatitis B Precore','Hepatitis B PTP','Hepatitis B S','Hepatitis B PreS','Hepatitis B Core', 'Herpes 2 Glycoprotein G', 'Human Papilloma 16 L1', 'Parvo B19 NS1', 'Parvo B19 VP1')
-#Virus_info$total[33]=Virus_info$total[48] # influenza short
-#Virus_info$total[36]=Virus_info$total[49]
+
 reorg<-Virus_info[match(name.list, Virus_info$name),]
 #reorg[!reorg$used == "no", ]
 #reorg[1:9] <- NULL
 #reorg[2:8] <- NULL
 reorg$count=c(1:nrow(reorg))
-data_points = data.frame("Count"= 1:length(my.list), "Virus"= 1:length(my.list))
+
 count = 1
 
 mean_or_median<- "mean"
-for (data in my.list){  
+#Function to help create errorbars
+sem<-function(x){
+    return(sd(x,na.rm = FALSE)/sqrt(length(x)))
+}
+#cycle through csv
+
+my.list<- list.files("output/Csv", pattern=".csv")
+data_points = data.frame("Count"= 1:length(my.list), "Virus"= 1:length(my.list))
+Virus_info<-read.csv("output/Final_CpG_List.csv")
+
+for (i in my.list){  
+  data<-read.csv(paste0("output/",my.list[i]))
   cpg.y<-subset(data, makesCpG==1)
   cpg.n<-subset(data, makesCpG==0)
   #subset further into letters nuclotideCpgforming or nucotideNonGpg
@@ -87,10 +96,6 @@ for (data in my.list){
   TNC<-subset(cpg.n, wtnt_consensus=='t')
   
   
-  #Function to help create errorbars
-  sem<-function(x){
-    return(sd(x,na.rm = FALSE)/sqrt(length(x)))
-  }
   if(mean_or_median == "mean"){
     stats= mean
     error_bar= sem
@@ -152,8 +157,8 @@ for (data in my.list){
   # AllT_LCLS = AllT$mean_value - AllT$sem_vals
   # AllT_UCLS = AllT$mean_value + AllT$sem_vals
   # 
-  
-  data_points$Virus[count]= name.list[count]
+  Name<-Virus_info[grep(strsplit(Virus_info[i],".csv"), Virus_info$File), ]
+  data_points$Virus[count]= Name$name
   data_points$AsynNC_C[count]= AllA_mean_value_syn_nCpG/AllA_mean_value_syn_CpG
   data_points$AnonsynNC_C[count]= AllA_mean_value_nonsyn_nCpG/AllA_mean_value_nonsyn_CpG
   
@@ -203,53 +208,13 @@ for(i in 1:nrow(data_points)){
   
   data_points$averagefit[i]= mean(avgi)}
 
-#sort average fitness costs to graph viruses in order of decreasing fitness
-#data_points <-(data_points[order(data_points$averagefit,decreasing = TRUE),])
-#rewrite count column
-#data_points$Count <- 1:nrow(data_points)
 
-#one of the error bars is too large at 2.47 e13 so we are placing it lower, but noting it high amount  
-#data_points[20,12] = data_points[20,14]/300
-#order by protein
-
-##### protein test not used
-# data_points$protein<-"missing"
-# data_points$multNS = 0
-# data_points$nucl = 0
-# data_points$seq = 0
-# #Virus_info<- read.csv("data/CpG_List.csv",na.strings = "NNN")
-# for (i in 1:nrow(data_points)) {
-#   treat=unlist(data_points[i,2])
-#   
-#   for (j in 1:nrow(Virus_info)){
-#   # splitnameAll<-unlist(strsplit(as.character(Virus_info$name[j]),".fasta"))
-#   # splitname<-unlist(strsplit(as.character(splitnameAll[1]),"_"))
-#   truename<-Virus_info$nice_name[j]
-#   #print(truename)
-#   
-#   if(treat==truename){
-#     data_points$protein[i]<-as.character(Virus_info$gene[j])
-#     data_points$nucl[i] = Virus_info$NucleotideNumber[j]
-#     data_points$seq[i] = Virus_info$SeqNumber[j]
-#     data_points$multNS[i]<-reorg$total[i]
-#     data_points$multNS[i]<-reorg$total[i]
-#    
-#   }
-#   } 
-# }
 df <- apply(data_points,2,as.character)
-write.csv(df, file = "output/All_Data/Costly/alldatapoints.csv")
-
-#data_points$Virus<-c('Dengue1', 'Dengue2', 'Dengue3', 'Dengue4', 'humanparainfluenza1_F', 'humanparainfluenza1_HN', 'humanparainfluenza3_HN', 'InfluenzaA_HA_H1N1','InfluenzaA_HA_H3N2', 'InfluenzaA_NA_H1N1', 'InfluenzaA_NA_H3N2','InfluenzaB_HA', 'InfluenzaB_NA', 'EnteroA_VP1', 'EnteroA_VP2','EnteroB_VP1', 'EnteroB_VP2','EnteroC_VP1','EnteroC_VP2','EnteroD_VP1', 'BK_polyoma_VP1', 'HumanBoca1_VP1', 'HepatitisB_polymerase','HepatitisB_precore','HepatitisB_polymerase_truncated_precore','HepatitisB_s','HepatitisB_pre_S','HepatitisB_core', 'Humanherpes2_glycoprotein_G', 'Humanpapilloma16_L1', 'Humanrespiratorysyncytial', 'Humanrespiratorysyncytial_G', 'JCpolyoma_VP1', 'Measles_hemagglutin', 'ParvoB19_NS1', 'ParvoB19_VP1', 'RhinoB', 'RhinoB_polyprotein', 'RhinoC', 'RotaA_VP6', 'humanparainfluenza1', 'humanparainfluenza3')
-
-#data_points <-(data_points[order(data_points$protein),])
-#rewrite count column
-#data_points$Count <- 1:nrow(data_points)
+write.csv(df, file = "output/alldatapoints.csv")
 
 
-#print(data_points$TnonsynNC_LCLS/data_points$TnonsynC_LCLS)
 # graphing 
-png("output/All_data/Costly/Costly_Graph_AllR_9_25.png", width = 15, height = 8, units = "in", res= 500)
+png("output/All_data/Costly/Costly_Graph_AllR_12_1_2019.png", width = 15, height = 8, units = "in", res= 500)
 #--------------------
 par(mar=c(0,2,3,2), oma=c(6,4,1,1), mfrow=c(2,1))#, bg = "darkseagreen1"
 #changed mar(0,2,3,2) oma(6,4,1,1)
