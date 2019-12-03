@@ -21,7 +21,7 @@ tally$CpG_total<-tally$ca+tally$tg
 tally$ASynCpg<-tally$Ancestor_a_Syn_CpG_v_NonCpG+tally$Ancestor_t_Syn_CpG_v_NonCpG
 tally$ANonSynCpg<-tally$Ancestor_a_NonSyn_CpG_v_NonCpG+tally$Ancestor_t_NonSyn_CpG_v_NonCpG
 tally$ASynNonSyn<-tally$Ancestor_a_Syn_v_NonSyn +tally$Ancestor_t_Syn_CpG_v_NonCpG
-
+tally$A_CpG_total<-tally$ancestor_ca +tally$ancestor_tg
 
 palette(alpha(c("red","deepskyblue1","green")))
 
@@ -94,12 +94,12 @@ palette(alpha(c("red","deepskyblue1","green")))
 png("output/ancestor/data_CpG_sites.png", width = 6.75, height = 6.75, units = "in", res= 300)
 par(mfrow=c(2,2))#, bg = "darkseagreen1"
 
-plot(tally$Number_of_Sequences,tally$CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynCpg)],pch=c(19,15,17)[as.factor(tally$ASynCpg)],cex=1.5, main="Syn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of CpG sites")
+plot(tally$Number_of_Sequences,tally$A_CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynCpg)],pch=c(19,15,17)[as.factor(tally$ASynCpg)],cex=1.5, main="Syn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of CpG sites")
 
 
-plot(tally$Number_of_Sequences,tally$CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ANonSynCpg)],pch=c(19,15,17)[as.factor(tally$ANonSynCpg)],cex=1.5, main="NonSyn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of CpG sites")
+plot(tally$Number_of_Sequences,tally$A_CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ANonSynCpg)],pch=c(19,15,17)[as.factor(tally$ANonSynCpg)],cex=1.5, main="NonSyn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of CpG sites")
 
-plot(tally$Number_of_Sequences,tally$CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynNonSyn)],pch=c(19,15,17)[as.factor(tally$ASynNonSyn)],cex=1.5, main="Syn vs NonSyn",xlab = "# of Sequences", ylab = "# of CpG sites")
+plot(tally$Number_of_Sequences,tally$A_CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynNonSyn)],pch=c(19,15,17)[as.factor(tally$ASynNonSyn)],cex=1.5, main="Syn vs NonSyn",xlab = "# of Sequences", ylab = "# of CpG sites")
 
 plot(0, xaxt = 'n', yaxt = 'n', bty = 'n', pch = '', ylab = '', xlab = '')
 legend("bottomright",legend=c("Significant","Partially Significant","No Significance"),
