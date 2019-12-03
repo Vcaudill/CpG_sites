@@ -1,10 +1,20 @@
 1. Run Connetct.R 
    R_scripts > DataForamtting > Connect.R
 
-   *This will create frequency tables for each virus/gene in output/Csv as a csv format 
+   *This will create frequency tables for each virus/gene in output/Csv in a csv format 
 
-2. Run MakeWilcoxTables.R
+2. Run MakeWilcoxTables.R & M_frequency_graph.R with Wilcox_Tables_M_Freq_Graphs_other.R
+   1) R_scripts > graphs > Wilcox_Tables_M_Freq_Graphs_other.R
 
+   *This will create Wilcox tables & Frequency figure for each virus/gene in output/ancestor/WilcoxTables & output/ancestor/M_frequency_graphs or output/consensus/WilcoxTables & output/consensus/M_frequency_graphs as a png files
 
-3. Create figures
-   1) R_scripts > graphs > M_frequency_graph.R
+3. Create Costly Figure
+   1) R_scripts > graphs > Costly_Graph.R
+
+   *This will create the costly figure output/ancestor/Costly or output/consensus/Costly
+   * It will also create a csv file called alldatapoints which 
+
+4. Data Summary Figure
+   1)  R_scripts > graphs > data_summary.R
+
+   *This will create a data summary figure in output/ancestor or output/consensus it also calculates the percentages that were significant 
