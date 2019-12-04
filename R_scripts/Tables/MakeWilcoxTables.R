@@ -1,16 +1,14 @@
 
-# my.list <- list(DengueVirus1, DengueVirus2, DengueVirus3, DengueVirus4, HepatitisCvirus_1A, HepatitisCvirus_1B, HIV_1, humanparainfluenzavirus1_F, humanparainfluenzavirus1_HN, humanparainfluenzavirus3_HN, humanparainfluenzavirus1, humanparainfluenzavirus3, InfluenzaAvirus_HA_H1N1,InfluenzaAvirus_HA_H3N2, InfluenzaAvirus_NA_H1N1, InfluenzaAvirus_NA_H3N2,InfluenzaBvirus_HA, InfluenzaBvirus_NA, EnterovirusA_VP1, EnterovirusA_VP2,EnterovirusB_VP1, EnterovirusB_VP2,EnterovirusC_VP1,EnterovirusC_VP2,EnterovirusD_VP1, Humanrespiratorysyncytialvirus, Humanrespiratorysyncytialvirus_G, Measles_hemagglutinin_OR_haemagglutinin, RhinovirusB, RhinovirusC, RotavirusA_VP6, BKpolyomavirus_VP1, HumanBocavirus1_VP1, HepatitisB_polymerase,HepatitisB_precore,HepatitisB_polymerase_truncated_precore,HepatitisB_s,HepatitisB_pre_S,HepatitisB_core, Humanherpesvirus2_glycoprotein_G, Humanpapillomavirus16_L1, ParvovirusB19_NS1, ParvovirusB19_VP1)
-name.list <- c('Dengue 1', 'Dengue 2', 'Dengue 3', 'Dengue 4', "HCV1A", "HCV1B", "HIV pol gene", 'Human Parainfluenza 1 F', 'Human Parainfluenza 1 HN', 'Human Parainfluenza 3 HN', 'Human Parainfluenza 1', 'Human Parainfluenza 3', 'Influenza A H1N1 HA','Influenza A H3N2 HA', 'Influenza A H1N1 NA', 'Influenza A H3N2 NA','Influenza B HA', 'Influenza B NA', 'Entero A VP1', 'Entero A VP2','Entero B VP1', 'Entero B VP2','Entero C VP1','Entero C VP2','Entero D VP1', 'Human Respiratory Syncytial', 'Human Respiratory Syncytial G', 'Measles HH', 'Rhino B', 'Rhino C', 'Rota A VP6', 'Bk Polyoma VP1', 'Human Boca 1 VP1', 'Hepatitis B Polymerase','Hepatitis B Precore','Hepatitis B PTP','Hepatitis B S','Hepatitis B PreS','Hepatitis B Core', 'Human Herpes 2 glycoprotein G', 'Human Papilloma 16 L1', 'Parvo B19 NS1', 'Parvo B19 VP1')
-#List of all virus names (name + .csv/Rda)
-#Virus_info<- read.csv("data/CpG_List.csv")
 #This function is going to read the data from the csv files 
-
-Tables = function(truename, place){ 
+#makesCpG <-> ancestor_makesCpG
+#wtnt_consensus<->ancestor
+#TypeOfSite<->ancestor_TypeOfSite
+Tables = function(truename, csv_file){ 
   #setwd("..")
   #truename ="Humanherpesvirus2_gD"
   truenamecsv= paste(truename, ".csv", sep="")
   print(truenamecsv)
-  DF<- read.csv(paste(place, truenamecsv, sep=""))
+  DF<- read.csv(csv_file)
   #if(DF<- read.csv(paste(place, truenamecsv, sep="")) == FALSE) {
     #DF<- read.csv(paste("data/data_2019/Csv/new_for_costly", truenamecsv, sep=""))}
   #}
@@ -33,14 +31,14 @@ Wilcox_test = function(data, truename){
   options(scipen=999)
   #prevents pvalues from becoming scientific notation. 
   
-  array1 = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'syn' & data$makesCpG == 1]
-  array2 = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'syn' & data$makesCpG == 0]
-  array3 = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'nonsyn' & data$makesCpG == 1]
-  array4 = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'nonsyn' & data$makesCpG == 0]
-  syna = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'syn']
-  nonsyna = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'nonsyn']
-  CpGa = data$Freq[data$wtnt_consensus =="a" & data$makesCpG == 1]
-  nonCpGa = data$Freq[data$wtnt_consensus =="a" &  data$makesCpG == 0]
+  array1 = data$Freq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'syn' & data$ancestor_makesCpG == 1]
+  array2 = data$Freq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'syn' & data$ancestor_makesCpG == 0]
+  array3 = data$Freq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'nonsyn' & data$ancestor_makesCpG == 1]
+  array4 = data$Freq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'nonsyn' & data$ancestor_makesCpG == 0]
+  syna = data$Freq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'syn']
+  nonsyna = data$Freq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'nonsyn']
+  CpGa = data$Freq[data$ancestor =="a" & data$ancestor_makesCpG == 1]
+  nonCpGa = data$Freq[data$ancestor =="a" &  data$ancestor_makesCpG == 0]
   
   print("For a: Comparing makes CpG with noCpG (syn). Wilcox test less: red/blue")
   print(wilcox.test(array1, array2, alternative='less'))
@@ -56,14 +54,14 @@ Wilcox_test = function(data, truename){
   pVals = c(pVals,format(wilcox.test(syna, nonsyna, alternative='greater')$p.value, nsmall = 6))
   print(pVals)
   
-  array5 = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'syn' & data$makesCpG == 1]
-  array6 = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'syn' & data$makesCpG == 0]
-  array7 = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'nonsyn' & data$makesCpG == 1]
-  array8 = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'nonsyn' & data$makesCpG == 0]
-  synt = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'syn']
-  nonsynt = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'nonsyn']
-  CpGt = data$Freq[data$wtnt_consensus =="t" & data$makesCpG == 1]
-  nonCpGt = data$Freq[data$wtnt_consensus =="t" &  data$makesCpG == 0]
+  array5 = data$Freq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'syn' & data$ancestor_makesCpG == 1]
+  array6 = data$Freq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'syn' & data$ancestor_makesCpG == 0]
+  array7 = data$Freq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'nonsyn' & data$ancestor_makesCpG == 1]
+  array8 = data$Freq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'nonsyn' & data$ancestor_makesCpG == 0]
+  synt = data$Freq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'syn']
+  nonsynt = data$Freq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'nonsyn']
+  CpGt = data$Freq[data$ancestor =="t" & data$ancestor_makesCpG == 1]
+  nonCpGt = data$Freq[data$ancestor =="t" &  data$ancestor_makesCpG == 0]
   
   print("For t: Comparing makes CpG with noCpG (syn). Wilcox test less: red/blue")
   print(wilcox.test(array5, array6, alternative='less'))
