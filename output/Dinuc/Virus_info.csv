@@ -1,0 +1,43 @@
+,virus,Type,Virus
+1,BKPolyomavirus_VP1,DNA,BK Polyoma VP1
+2,Denguevirus1,RNA,Dengue 1
+3,Denguevirus2,RNA,Dengue 2
+4,Denguevirus3,RNA,Dengue 3
+5,Denguevirus4,RNA,Dengue 4
+6,EnteroD68_VP1,RNA,Entero D VP1
+7,Enterovirus_C_VP2_Polio2,RNA,Entero A VP1
+8,EnterovirusA_VP1_EVA71,RNA,Entero A VP2
+9,EnterovirusA_VP2_EVA71,RNA,Entero B VP1
+10,EnterovirusB_VP1_Echovirus30,RNA,Entero B VP2
+11,EnterovirusB_VP2,RNA,Entero C VP1
+12,EnterovirusC_VP1_Polio2,RNA,Entero C VP2
+13,HBV_A_Polymerase,DNA,HBV A Polymerase
+14,HBV_A_S,DNA,HBV A S
+15,HBV_B_Polymerase,DNA,HBV B Polymerase
+16,HBV_B_PreC-Core,DNA,HBV B PreC/Core
+17,HBV_C_polymerase,DNA,HBV C polymerase
+18,HBV_C_PreC-Core,DNA,HBV C PreC/Core
+19,HBV_C_S,DNA,HBV C S
+20,HCV1A_CDS_Alignment,RNA,HCV 1A
+21,HCV1B_CDS_alignment,RNA,HCV 1B
+22,HIV1_FLT_2017_pol_DNA,RNA,HIV1 Pol
+23,Human_Parainfluenza3_HN,RNA,Human Parainfluenza 3 HN
+24,HumanBoca_VP1,DNA,Human Boca VP1
+25,HumanHerpes2gG_CDS,DNA,Human Herpes 2gG
+26,HumanPapilloma16_L1,DNA,Human Papilloma16 L1
+27,HumanRespiratorySyncytial_CDS,RNA,Human Respiratory Syncytial
+28,InfluenzaAvirus_HA_H1N1_alignment,RNA,InfluenzaA HA H1N1
+29,InfluenzaAvirus_HA_H3N2_alignment,RNA,InfluenzaA HA H3N2
+30,InfluenzaAvirus_NA_H1N1_alignment,RNA,InfluenzaA NA H1N1
+31,InfluenzaAvirus_NA_H3N2_alignment,RNA,InfluenzaA NA H3N2
+32,InfluenzaB_HA,RNA,InfluenzaB HA
+33,InfluenzaB_NA,RNA,InfluenzaB NA
+34,Measles_hemagglutinin_alignment,RNA,Measles HH
+35,Parainfluenza1_HN,RNA,Human Parainfluenza 1 HN
+36,HumanParainfluenzavirus1_CDS_only,RNA,Human Parainfluenza 1
+37,Parainfulenza3_CDS,RNA,Human Parainfulenza 3
+38,ParovirusB19_NS1_alignment,DNA,Parvo B19 NS1
+39,Parovovirus_B19_VP1_alignment,DNA,Parovo B19 VP1
+40,RhinovirusB alignment,RNA,Rhino B
+41,RhinovirusC,RNA,Rhino C
+42,RotavirusA_VP6_alignment,RNA,Rota A VP6
