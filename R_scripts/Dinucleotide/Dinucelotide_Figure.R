@@ -39,6 +39,7 @@ cpg<-merge(cpg, info, by="virus")
 cpg$Type<-factor(cpg$Type, levels=c("RNA", "DNA"))
 cpg<-cpg[order(cpg$Type),]
 cpg$Virus<-factor(cpg$Virus, level=paste0(cpg$Virus))
+write.csv(cpg, "output/Dinuc/CG_summary.csv")
 
 n<-nrow(cpg[cpg$Type=="RNA",])
 
