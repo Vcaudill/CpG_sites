@@ -39,7 +39,7 @@ for(i in 1:length(Virus_info)){
   write.csv(DF, file = paste0("output/Csv/",truename,".csv"))
   if(Virus_info[length(Virus_info)]==Virus_info[i]){
       ancestor<- merge(ancestor, ancestor2, by= "File")
-      write.csv(ancestor, file = "output/Final_CpG_List.csv")
+      write.csv(ancestor, file = "output/Extra_CpG_info.csv")
   }
  
 }
