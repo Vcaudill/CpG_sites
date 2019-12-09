@@ -7,9 +7,9 @@ library(gdata)
 
 tally<- read.csv("output/Tally.csv")
 
-seq_info<-read.csv("output/Final_CpG_List.csv")
+extra_ifo<-read.csv("output/Extra_CpG_info.csv")
 
-tally <- merge(tally, seq_info ,by="File")
+tally <- merge(extra_ifo, tally ,by="File")
 
 # #Syn CpG vs Non-CpG
 # consensus

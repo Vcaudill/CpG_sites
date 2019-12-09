@@ -48,7 +48,7 @@ for (i in 1:length(Fastafiles)){
     tb1$Rho<-rowMeans(Rho.values[,2:ncol(Rho.values)], na.rm=1)
     tb1$Z<-rowMeans(Z.scores[,2:ncol(Z.scores)], na.rm=1)
     
-    write.csv(tb1,paste0("output/Dinuc/Dinuc.freq.",substr(Fastafiles[i], 1,nchar(Fastafiles[i])-6),".csv"))
+    write.csv(tb1,paste0("output/ancestor/Dinuc/Dinuc.freq.",substr(Fastafiles[i], 1,nchar(Fastafiles[i])-6),".csv"))
     
 }
 

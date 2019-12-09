@@ -5,7 +5,7 @@ library(phylotools)
 library(dplyr)
 
 viruplace<-"data/EnterovirusA_VP2_EVA71.fasta"
-name<-"EnterovirusA_VP2_EVA71"
+name<-"EnterovirusA_VP2_EVA71.fasta"
 DataSet <- read.fasta(viruplace)
 
 
@@ -42,18 +42,23 @@ name<-"Parainfulenza3_CDS"
 DataSet <- read.fasta(viruplace)
 
 
-sample_size= 200 #sequences
-DataSet <- read.fasta(viruplace)
+Virus_info<- list.files("data/", pattern=".fasta")
+
+for(i in 1:length(Virus_info)){
+    print(Virus_info[i])
+    name <- unlist(strsplit(as.character(Virus_info[i]),".fasta"))
+    sample_size= 200 #sequences
+    DataSet <- read.fasta(paste0("data/",Virus_info[i]))
 # DF<-as.data.frame(DataSet)
-nrow(DataSet)
-if (nrow(DataSet) > sample_size) {
-    DS <- dplyr::sample_n(DataSet, size = sample_size, replace=F)
-    size = sample_size
-}else{
-    DS <- dplyr::sample_n(DataSet, size = as.numeric(nrow(DataSet)))
+    # nrow(DataSet)
+    if (nrow(DataSet) > sample_size) {
+        DS <- dplyr::sample_n(DataSet, size = sample_size, replace=F)
+        size = sample_size
+    }else{
+        DS <- dplyr::sample_n(DataSet, size = as.numeric(nrow(DataSet)))
 }
 
-sampleviruplace = paste("/Users/victoria/Desktop/",name,"_sample.fasta",sep="")
+sampleviruplace = paste("/Users/victoria/Desktop/sample/",name,"_sample.fasta",sep="")
 dat2fasta(DS, outfile = sampleviruplace)
-
+}
 

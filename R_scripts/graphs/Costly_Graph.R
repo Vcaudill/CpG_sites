@@ -14,7 +14,7 @@ sem<-function(x){
 #cycle through csv
 
 my.list<- list.files("output/Csv", pattern=".csv")
-data_points = data.frame("order"= 1:length(my.list), "Virus"= 0,'total'=0,"AsynNC_C" =0,"AnonsynNC_C"=0,'TsynNC_C'=0, "TnonsynNC_C"= 0,'AsynC_LCLS' = 0, 'AnonsynC_LCLS'=0,'AsynNC_LCLS'= 0,'AnonsynNC_LCLS'=0,'TsynC_LCLS' = 0, 'TnonsynC_LCLS' = 0, 'TsynNC_LCLS' = 0, 'TnonsynNC_LCLS' = 0, 'AsynC_UCLS'= 0, 'AnonsynC_UCLS'= 0, 'AsynNC_UCLS'= 0, 'AnonsynNC_UCLS'= 0, 'TsynC_UCLS'= 0, 'TnonsynC_UCLS'=0, 'TsynNC_UCLS' = 0,'TnonsynNC_UCLS' =0   )
+data_points = data.frame("order"= 1:length(my.list), "Virus"= 0,'total'=0,"AsynNC_C" =0,'AsynC_LCLS' = 0, 'AsynNC_LCLS'= 0, 'AsynC_UCLS'= 0, 'AsynNC_UCLS'= 0,'TsynNC_C'=0,'TsynC_LCLS' = 0, 'TsynNC_LCLS' = 0,  'TsynC_UCLS'= 0,  'TsynNC_UCLS' = 0 )
 Virus_info<-read.csv("output/Final_CpG_List.csv")
 count = 1
 for (i in 1:length(my.list)){  
@@ -43,44 +43,32 @@ for (i in 1:length(my.list)){
     AllT = rbind(TC, TNC)
     
     # for loops to caculate mean ans errorbars
-    for (i in 1:length(AllA$ancestor_makesCpG)) {
-        if (AllA$ancestor_makesCpG[i] == 1 && AllA$ancestor_TypeOfSite[i] == "syn") {
+    for (j in 1:length(AllA$ancestor_makesCpG)) {
+        if (AllA$ancestor_makesCpG[j] == 1 && AllA$ancestor_TypeOfSite[j] == "syn") {
             AllA_mean_value_syn_CpG <- stats(AllA$Freq[(which(AllA$ancestor_makesCpG == 1 & AllA$ancestor_TypeOfSite == "syn") )])
             AllA_sem_vals_syn_CpG<-error_bar(AllA$Freq[(which(AllA$ancestor_makesCpG == 1 & AllA$ancestor_TypeOfSite == "syn") )])
             
         }
-        if (AllA$ancestor_makesCpG[i] == 1 && AllA$ancestor_TypeOfSite[i] == "nonsyn") {
-            AllA_mean_value_nonsyn_CpG<- stats(AllA$Freq[(which(AllA$ancestor_makesCpG == 1 & AllA$ancestor_TypeOfSite == "nonsyn") )])
-            AllA_sem_vals_nonsyn_CpG<-error_bar(AllA$Freq[(which(AllA$ancestor_makesCpG == 1 & AllA$ancestor_TypeOfSite == "nonsyn") )])
-        }
-        if (AllA$ancestor_makesCpG[i] == 0 && AllA$ancestor_TypeOfSite[i] == "syn") {
+        
+        if (AllA$ancestor_makesCpG[j] == 0 && AllA$ancestor_TypeOfSite[j] == "syn") {
             AllA_mean_value_syn_nCpG <- stats(AllA$Freq[(which(AllA$ancestor_makesCpG == 0 & AllA$ancestor_TypeOfSite == "syn") )])
             
             AllA_sem_vals_syn_nCpG<-error_bar(AllA$Freq[(which(AllA$ancestor_makesCpG == 0 & AllA$ancestor_TypeOfSite == "syn") )])
         }
-        if (AllA$ancestor_makesCpG[i] == 0 && AllA$ancestor_TypeOfSite[i] == "nonsyn") {
-            AllA_mean_value_nonsyn_nCpG<- stats(AllA$Freq[(which(AllA$ancestor_makesCpG == 0 & AllA$ancestor_TypeOfSite == "nonsyn") )])
-            AllA_sem_vals_nonsyn_nCpG<-error_bar(AllA$Freq[(which(AllA$ancestor_makesCpG == 0 & AllA$ancestor_TypeOfSite == "nonsyn") )])
-        }
+       
     }
     
-    for (i in 1:length(AllT$ancestor_makesCpG)) {
-        if (AllT$ancestor_makesCpG[i] == 1 && AllT$ancestor_TypeOfSite[i] == "syn") {
+    for (k in 1:length(AllT$ancestor_makesCpG)) {
+        if (AllT$ancestor_makesCpG[k] == 1 && AllT$ancestor_TypeOfSite[k] == "syn") {
             AllT_mean_value_syn_CpG <- stats(AllT$Freq[(which(AllT$ancestor_makesCpG == 1 & AllT$ancestor_TypeOfSite == "syn") )])
             AllT_sem_vals_syn_CpG<-error_bar(AllT$Freq[(which(AllT$ancestor_makesCpG == 1 & AllT$ancestor_TypeOfSite == "syn") )])
         }
-        if (AllT$ancestor_makesCpG[i] == 1 && AllT$ancestor_TypeOfSite[i] == "nonsyn") {
-            AllT_mean_value_nonsyn_CpG <- stats(AllT$Freq[(which(AllT$ancestor_makesCpG == 1 & AllT$ancestor_TypeOfSite == "nonsyn") )])
-            AllT_sem_vals_nonsyn_CpG<-error_bar(AllT$Freq[(which(AllT$ancestor_makesCpG == 1 & AllT$ancestor_TypeOfSite == "nonsyn") )])
-        }
-        if (AllT$ancestor_makesCpG[i] == 0 && AllT$ancestor_TypeOfSite[i] == "syn") {
+        
+        if (AllT$ancestor_makesCpG[k] == 0 && AllT$ancestor_TypeOfSite[k] == "syn") {
             AllT_mean_value_syn_nCpG<- stats(AllT$Freq[(which(AllT$ancestor_makesCpG == 0 & AllT$ancestor_TypeOfSite == "syn") )])
             AllT_sem_vals_syn_nCpG<-error_bar(AllT$Freq[(which(AllT$ancestor_makesCpG == 0 & AllT$ancestor_TypeOfSite == "syn") )])
         }
-        if (AllT$ancestor_makesCpG[i] == 0 && AllT$ancestor_TypeOfSite[i] == "nonsyn") {
-            AllT_mean_value_nonsyn_nCpG <- stats(AllT$Freq[(which(AllT$ancestor_makesCpG == 0 & AllT$ancestor_TypeOfSite == "nonsyn") )])
-            AllT_sem_vals_nonsyn_nCpG<-error_bar(AllT$Freq[(which(AllT$ancestor_makesCpG == 0 & AllT$ancestor_TypeOfSite == "nonsyn") )])
-        }
+        
     }
     
     # There are the upper and lower limits of the error bar
@@ -95,54 +83,25 @@ for (i in 1:length(my.list)){
     data_points$total[count]<- Name$Number_of_Sequences*Name$Number_of_Nucleotides
     data_points$order[count]<-Name$graph_order
     data_points$AsynNC_C[count]= AllA_mean_value_syn_nCpG/AllA_mean_value_syn_CpG
-    data_points$AnonsynNC_C[count]= AllA_mean_value_nonsyn_nCpG/AllA_mean_value_nonsyn_CpG
-    
+
     data_points$TsynNC_C[count] = AllT_mean_value_syn_nCpG/AllT_mean_value_syn_CpG
-    data_points$TnonsynNC_C[count] = AllT_mean_value_nonsyn_nCpG/AllT_mean_value_nonsyn_CpG
-    
+
     
     data_points$AsynC_LCLS[count]= AllA_mean_value_syn_CpG - AllA_sem_vals_syn_CpG
-    data_points$AnonsynC_LCLS[count]= AllA_mean_value_nonsyn_CpG - AllA_sem_vals_nonsyn_CpG
     data_points$AsynNC_LCLS[count]= AllA_mean_value_syn_nCpG - AllA_sem_vals_syn_nCpG
-    data_points$AnonsynNC_LCLS[count]= AllA_mean_value_nonsyn_nCpG - AllA_sem_vals_nonsyn_nCpG
     data_points$TsynC_LCLS[count] = AllT_mean_value_syn_CpG - AllT_sem_vals_syn_CpG
-    data_points$TnonsynC_LCLS[count] =AllT_mean_value_nonsyn_CpG - AllT_sem_vals_nonsyn_CpG
     data_points$TsynNC_LCLS[count] = AllT_mean_value_syn_nCpG - AllT_sem_vals_syn_nCpG 
-    data_points$TnonsynNC_LCLS[count] =AllT_mean_value_nonsyn_nCpG - AllT_sem_vals_nonsyn_nCpG
-    
+
     data_points$AsynC_UCLS[count]= AllA_mean_value_syn_CpG + AllA_sem_vals_syn_CpG
-    data_points$AnonsynC_UCLS[count]= AllA_mean_value_nonsyn_CpG + AllA_sem_vals_nonsyn_CpG
+   
     data_points$AsynNC_UCLS[count]= AllA_mean_value_syn_nCpG + AllA_sem_vals_syn_nCpG
-    data_points$AnonsynNC_UCLS[count]= AllA_mean_value_nonsyn_nCpG + AllA_sem_vals_nonsyn_nCpG
+
     data_points$TsynC_UCLS[count] = AllT_mean_value_syn_CpG + AllT_sem_vals_syn_CpG
-    data_points$TnonsynC_UCLS[count] =AllT_mean_value_nonsyn_CpG + AllT_sem_vals_nonsyn_CpG
+    
     data_points$TsynNC_UCLS[count] = AllT_mean_value_syn_nCpG + AllT_sem_vals_syn_nCpG 
-    data_points$TnonsynNC_UCLS[count] =AllT_mean_value_nonsyn_nCpG + AllT_sem_vals_nonsyn_nCpG
+    
     count = count +1
 }
-
-
-#making new column of average fitness costs
-data_points$averagefit<-0
-for(i in 1:nrow(data_points)){
-    avg <-c(data_points$AsynNC_C[i], data_points$AnonsynNC_C[i], data_points$TsynNC_C[i], data_points$TnonsynNC_C[i])
-    for(inf in avg){
-    }
-    if(data_points$AsynNC_C[i] != "Inf" & data_points$AsynNC_C[i] !='NaN'){
-        avgi<- c(data_points$AsynNC_C[i])
-        #avg <-c(data_points$AnonsynNC_C[i], data_points$TsynNC_C[i], data_points$TnonsynNC_C[i])
-    }
-    if(data_points$AnonsynNC_C[i] != "Inf" & data_points$AnonsynNC_C[i] !='NaN'){
-        avgi<-append(avgi, data_points$AnonsynNC_C[i])
-    }
-    if(data_points$TsynNC_C[i] != "Inf" & data_points$TsynNC_C[i] !='NaN'){
-        avgi<- append(avgi,data_points$TsynNC_C[i])
-    }
-    if(data_points$TnonsynNC_C[i] != "Inf" & data_points$TnonsynNC_C[i] !='NaN'){
-        avgi<- append(avgi,data_points$TnonsynNC_C[i])
-    }
-    
-    data_points$averagefit[i]= mean(avgi)}
 
 
 df <- apply(data_points,2,as.character)
@@ -150,13 +109,13 @@ write.csv(df, file = "output/ancestor/alldatapoints.csv")
 
 
 # graphing 
-png("output/ancestor/Costly/Costly_Graph_AllR_12_1_2019.png", width = 15, height = 8, units = "in", res= 500)
+png("output/ancestor/Costly/Costly_Graph_AllR_12_7_2019.png", width = 15, height = 8, units = "in", res= 500)
 #--------------------
 par(mar=c(0,2,3,2), oma=c(6,4,1,1), mfrow=c(2,1))#, bg = "darkseagreen1"
 #changed mar(0,2,3,2) oma(6,4,1,1)
 x <- data_points$order 
 y <-  data_points$AsynNC_C
-plot(x,y, type = "n", log ='y' ,main="Cost of CpG-Creating Mutations", xlab=" ", yaxt = "n", ylab="Costly", xaxt = "n", ylim=c(0.15, 300), xlim=c(2, length(my.list) +5.5), las= 1, cex.main=3) 
+plot(x,y, type = "n", log ='y' ,main="Cost of CpG-Creating Mutations", xlab=" ", yaxt = "n", ylab="Costly", xaxt = "n", ylim=c(0.02, 300), xlim=c(2, length(my.list) +5.5), las= 1, cex.main=3) 
 
 abline(v=c(1.5,2.5,3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5,12.5,13.5,14.5,16.5,17.5,18.5,19.5,15.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5, 39.5, 40.5), col="grey", lty=c(1))
 
@@ -199,7 +158,7 @@ arrows(data_points$order-.3, data_points$AsynNC_LCLS/data_points$AsynC_LCLS, dat
 arrows(data_points$order+.1, data_points$TsynNC_LCLS/data_points$TsynC_LCLS, data_points$order+.1, data_points$TsynNC_UCLS/data_points$TsynC_UCLS, length=0.05, angle=90, code=3, col= "blue")
 #arrows(data_points$Count+.3, data_points$TnonsynNC_LCLS/data_points$TnonsynC_LCLS, data_points$Count +.3, data_points$TnonsynNC_UCLS/data_points$TnonsynC_UCLS, length=0.05, angle=90, code=3, col= "purple")
 
-axis(2, at = c(0.2, 0.5,1,2,5,10,20,50,100,200), labels = c(0.01, 0.5,1,2,5,10,20,50,100,200),  las=2)
+axis(2, at = c(0.02, 0.5,1,2,5,10,20,50,100,200), labels = c(0.02, 0.5,1,2,5,10,20,50,100,200),  las=2)
 #axis.break(2, 0.007,breakcol="black",style="slash")
 #mtext('No nonCpG \n  or  CpG     \n    mutations  ', side=2, line=.005, at=0.002, las=1.1, cex = .7)
 #mtext('No nonCpG \n   mutations   ', side=2, line=.005, at=0.0005, las=1.1, cex = .7)
