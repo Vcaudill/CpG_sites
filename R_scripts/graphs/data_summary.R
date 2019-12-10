@@ -8,9 +8,26 @@ library(gdata)
 tally<- read.csv("output/Tally.csv")
 
 extra_ifo<-read.csv("output/Extra_CpG_info.csv")
+extra_ifo$Count_of_CpG_mutations<-0
+extra_ifo$ancestor_Count_of_CpG_mutations<-0
+
+my.list<- list.files("output/Csv", pattern=".csv")
+
+for (i in 1:length(my.list)){  
+    data<-read.csv(paste0("output/Csv/",my.list[i]))
+    Name<-extra_ifo[grep(strsplit(my.list[i],".csv"), extra_ifo$File), ]
+    CpG_mutation_data<-subset(subset(subset(data, makesCpG==1), TypeOfSite == "syn"), Freq>0)
+    if (Name$File == extra_ifo$File[i]){
+        extra_ifo$Count_of_CpG_mutations[i]<-nrow(CpG_mutation_data)}
+    
+    data_a<-read.csv(paste0("output/Csv/",my.list[i]))
+    Name_a<-extra_ifo[grep(strsplit(my.list[i],".csv"), extra_ifo$File), ]
+    a_CpG_mutation_data<-subset(subset(subset(data_a, ancestor_makesCpG==1), ancestor_TypeOfSite == "syn"), aFreq>0)
+    if (Name_a$File == extra_ifo$File[i]){
+    extra_ifo$ancestor_Count_of_CpG_mutations[i]<-nrow(a_CpG_mutation_data)}
+    }
 
 tally <- merge(extra_ifo, tally ,by="File")
-
 # #Syn CpG vs Non-CpG
 # consensus
 tally$SynCpg<-tally$Consensus_a_Syn_CpG_v_NonCpG+tally$Consensus_t_Syn_CpG_v_NonCpG
@@ -42,7 +59,7 @@ legend("bottomright",legend=c("Significant","Partially Significant","No Signific
        cex=1, pch = c(17,15,19))
 dev.off()
 
-#### numver of possible cpg sites
+#### number of possible cpg sites
 
 palette(alpha(c("red","deepskyblue1","green")))
 
@@ -50,12 +67,12 @@ palette(alpha(c("red","deepskyblue1","green")))
 png("output/consensus/data_CpG_sites.png", width = 6.75, height = 6.75, units = "in", res= 300)
 par(mfrow=c(2,2))#, bg = "darkseagreen1"
 
-plot(tally$Number_of_Sequences,tally$CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$SynCpg)],pch=c(19,15,17)[as.factor(tally$SynCpg)],cex=1.5, main="Syn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of CpG sites")
+plot(tally$Number_of_Sequences,tally$CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$SynCpg)],pch=c(19,15,17)[as.factor(tally$SynCpg)],cex=1.5, main="Syn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of possible CpG sites")
 
 
-plot(tally$Number_of_Sequences,tally$CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$NonSynCpg)],pch=c(19,15,17)[as.factor(tally$NonSynCpg)],cex=1.5, main="NonSyn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of CpG sites")
+plot(tally$Number_of_Sequences,tally$CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$NonSynCpg)],pch=c(19,15,17)[as.factor(tally$NonSynCpg)],cex=1.5, main="NonSyn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of possible CpG sites")
 
-plot(tally$Number_of_Sequences,tally$CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$SynNonSyn)],pch=c(19,15,17)[as.factor(tally$SynNonSyn)],cex=1.5, main="Syn vs NonSyn",xlab = "# of Sequences", ylab = "# of CpG sites")
+plot(tally$Number_of_Sequences,tally$CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$SynNonSyn)],pch=c(19,15,17)[as.factor(tally$SynNonSyn)],cex=1.5, main="Syn vs NonSyn",xlab = "# of Sequences", ylab = "# of possible CpG sites")
 
 plot(0, xaxt = 'n', yaxt = 'n', bty = 'n', pch = '', ylab = '', xlab = '')
 legend("bottomright",legend=c("Significant","Partially Significant","No Significance"),
@@ -64,6 +81,32 @@ legend("bottomright",legend=c("Significant","Partially Significant","No Signific
        cex=1, pch = c(17,15,19))
 
 dev.off()
+
+
+#### number of cpg mutations
+
+palette(alpha(c("red","deepskyblue1","green")))
+
+
+png("output/consensus/data_CpG_mutations.png", width = 6.75, height = 6.75, units = "in", res= 300)
+par(mfrow=c(2,2))#, bg = "darkseagreen1"
+
+plot(tally$Number_of_Sequences,tally$Count_of_CpG_mutations,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$SynCpg)],pch=c(19,15,17)[as.factor(tally$SynCpg)],cex=1.5, main="Syn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# CpG mutations")
+
+
+plot(tally$Number_of_Sequences,tally$Count_of_CpG_mutations,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$NonSynCpg)],pch=c(19,15,17)[as.factor(tally$NonSynCpg)],cex=1.5, main="NonSyn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# CpG mutations")
+
+plot(tally$Number_of_Sequences,tally$Count_of_CpG_mutations,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$SynNonSyn)],pch=c(19,15,17)[as.factor(tally$SynNonSyn)],cex=1.5, main="Syn vs NonSyn",xlab = "# of Sequences", ylab = "# CpG mutations")
+
+plot(0, xaxt = 'n', yaxt = 'n', bty = 'n', pch = '', ylab = '', xlab = '')
+legend("bottomright",legend=c("Significant","Partially Significant","No Significance"),
+       col= c("deepskyblue1","green","red"), horiz= FALSE, 
+       #lty is type of line used,cex is size of legend, xpd allows legend to lie outside the plot,bty is type of box around legend       
+       cex=1, pch = c(17,15,19))
+
+dev.off()
+
+
 
 ######################################################################
 ############################### ancestor ###################################
@@ -94,12 +137,35 @@ palette(alpha(c("red","deepskyblue1","green")))
 png("output/ancestor/data_CpG_sites.png", width = 6.75, height = 6.75, units = "in", res= 300)
 par(mfrow=c(2,2))#, bg = "darkseagreen1"
 
-plot(tally$Number_of_Sequences,tally$A_CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynCpg)],pch=c(19,15,17)[as.factor(tally$ASynCpg)],cex=1.5, main="Syn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of CpG sites")
+plot(tally$Number_of_Sequences,tally$A_CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynCpg)],pch=c(19,15,17)[as.factor(tally$ASynCpg)],cex=1.5, main="Syn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of possible CpG sites")
 
 
-plot(tally$Number_of_Sequences,tally$A_CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ANonSynCpg)],pch=c(19,15,17)[as.factor(tally$ANonSynCpg)],cex=1.5, main="NonSyn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of CpG sites")
+plot(tally$Number_of_Sequences,tally$A_CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ANonSynCpg)],pch=c(19,15,17)[as.factor(tally$ANonSynCpg)],cex=1.5, main="NonSyn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of possible CpG sites")
 
-plot(tally$Number_of_Sequences,tally$A_CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynNonSyn)],pch=c(19,15,17)[as.factor(tally$ASynNonSyn)],cex=1.5, main="Syn vs NonSyn",xlab = "# of Sequences", ylab = "# of CpG sites")
+plot(tally$Number_of_Sequences,tally$A_CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynNonSyn)],pch=c(19,15,17)[as.factor(tally$ASynNonSyn)],cex=1.5, main="Syn vs NonSyn",xlab = "# of Sequences", ylab = "# of possible CpG sites")
+
+plot(0, xaxt = 'n', yaxt = 'n', bty = 'n', pch = '', ylab = '', xlab = '')
+legend("bottomright",legend=c("Significant","Partially Significant","No Significance"),
+       col= c("deepskyblue1","green","red"), horiz= FALSE, 
+       #lty is type of line used,cex is size of legend, xpd allows legend to lie outside the plot,bty is type of box around legend       
+       cex=1, pch = c(17,15,19))
+
+dev.off()
+
+#### numver of  cpg mutations
+
+palette(alpha(c("red","deepskyblue1","green")))
+
+
+png("output/ancestor/data_CpG_mutations.png", width = 6.75, height = 6.75, units = "in", res= 300)
+par(mfrow=c(2,2))#, bg = "darkseagreen1"
+
+plot(tally$Number_of_Sequences,tally$ancestor_Count_of_CpG_mutations,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynCpg)],pch=c(19,15,17)[as.factor(tally$ASynCpg)],cex=1.5, main="Syn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of CpG Mutations")
+
+
+plot(tally$Number_of_Sequences,tally$ancestor_Count_of_CpG_mutations,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ANonSynCpg)],pch=c(19,15,17)[as.factor(tally$ANonSynCpg)],cex=1.5, main="NonSyn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of CpG Mutations")
+
+plot(tally$Number_of_Sequences,tally$ancestor_Count_of_CpG_mutationsl,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynNonSyn)],pch=c(19,15,17)[as.factor(tally$ASynNonSyn)],cex=1.5, main="Syn vs NonSyn",xlab = "# of Sequences", ylab = "# of CpG Mutations")
 
 plot(0, xaxt = 'n', yaxt = 'n', bty = 'n', pch = '', ylab = '', xlab = '')
 legend("bottomright",legend=c("Significant","Partially Significant","No Significance"),
