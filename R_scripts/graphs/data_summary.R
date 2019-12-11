@@ -165,7 +165,8 @@ plot(tally$Number_of_Sequences,tally$ancestor_Count_of_CpG_mutations,log='xy',co
 
 plot(tally$Number_of_Sequences,tally$ancestor_Count_of_CpG_mutations,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ANonSynCpg)],pch=c(19,15,17)[as.factor(tally$ANonSynCpg)],cex=1.5, main="NonSyn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of CpG Mutations")
 
-plot(tally$Number_of_Sequences,tally$ancestor_Count_of_CpG_mutationsl,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynNonSyn)],pch=c(19,15,17)[as.factor(tally$ASynNonSyn)],cex=1.5, main="Syn vs NonSyn",xlab = "# of Sequences", ylab = "# of CpG Mutations")
+plot(tally$Number_of_Sequences,tally$ancestor_Count_of_CpG_mutations,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynNonSyn)],pch=c(19,15,17)[as.factor(tally$ASynNonSyn)],cex=1.5, main="Syn vs NonSyn",xlab = "# of Sequences", ylab = "# of CpG Mutations")
+
 
 plot(0, xaxt = 'n', yaxt = 'n', bty = 'n', pch = '', ylab = '', xlab = '')
 legend("bottomright",legend=c("Significant","Partially Significant","No Significance"),
