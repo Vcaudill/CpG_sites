@@ -4,7 +4,7 @@ library(ggthemes)
 library(reshape2)
 colors<-qualitative_hcl(6, palette="Dark3")
 
-cpgMF<-read.csv("output/ancestor/alldatapoints.csv", stringsAsFactors = F, row.names = 1)
+cpgMF<-read.csv("output/consensus/alldatapoints.csv", stringsAsFactors = F, row.names = 1)
 dfA<-cpgMF[,c("Virus","AsynNC_C")]
 dfT<-cpgMF[,c("Virus","TsynNC_C")]
 colnames(dfA)[2]<-"CpG.Cost.A"
@@ -12,7 +12,7 @@ colnames(dfT)[2]<-"CpG.Cost.T"
 
 df<-merge(dfA, dfT, by="Virus")
 
-di<-read.csv("output/ancestor/Dinuc/CG_Summary.csv", stringsAsFactors = F, row.names = 1)
+di<-read.csv("output/consensus/Dinuc/CG_Summary.csv", stringsAsFactors = F, row.names = 1)
 di<-di[,c("Virus", "cg.rho")]
 
 df2<-merge(df, di, by="Virus")
@@ -89,7 +89,7 @@ ggplot(df.plot, aes(x=CG.rho, y=value, color=variable))+
     guides(color = guide_legend(override.aes = list(linetype = 0, size=2)))+
     annotate(geom="text",x=0.75, y=200, label=text, hjust=0, size=2)
 
-ggsave("output/ancestor/Dinuc/CPG_correlation.plot1.pdf", width = 5,height = 4)  
+ggsave("output/consensus/Dinuc/CPG_correlation.plot1.pdf", width = 5,height = 4)  
 
 
 ggplot(df.plot, aes(x=CG.rho, y=value, color=variable))+
@@ -106,4 +106,4 @@ ggplot(df.plot, aes(x=CG.rho, y=value, color=variable))+
     guides(color = guide_legend(override.aes = list(linetype = 0, size=2)))+
     annotate(geom="text",x=0.75, y=200, label=text1, hjust=0, size=2, parse=T)+
     annotate(geom="text",x=0.75, y=150, label=text2, hjust=0, size=2, parse=T)
-ggsave("output/ancestor/Dinuc/CPG_correlation.plot2.pdf", width = 5,height = 4)  
+ggsave("output/consensus/Dinuc/CPG_correlation.plot2.pdf", width = 5,height = 4)  
