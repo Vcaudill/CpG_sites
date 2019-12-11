@@ -45,28 +45,28 @@ for (i in 1:length(my.list)){
     # for loops to caculate mean ans errorbars
     for (j in 1:length(AllA$ancestor_makesCpG)) {
         if (AllA$ancestor_makesCpG[j] == 1 && AllA$ancestor_TypeOfSite[j] == "syn") {
-            AllA_mean_value_syn_CpG <- stats(AllA$Freq[(which(AllA$ancestor_makesCpG == 1 & AllA$ancestor_TypeOfSite == "syn") )])
-            AllA_sem_vals_syn_CpG<-error_bar(AllA$Freq[(which(AllA$ancestor_makesCpG == 1 & AllA$ancestor_TypeOfSite == "syn") )])
+            AllA_mean_value_syn_CpG <- stats(AllA$aFreq[(which(AllA$ancestor_makesCpG == 1 & AllA$ancestor_TypeOfSite == "syn") )])
+            AllA_sem_vals_syn_CpG<-error_bar(AllA$aFreq[(which(AllA$ancestor_makesCpG == 1 & AllA$ancestor_TypeOfSite == "syn") )])
             
         }
         
         if (AllA$ancestor_makesCpG[j] == 0 && AllA$ancestor_TypeOfSite[j] == "syn") {
-            AllA_mean_value_syn_nCpG <- stats(AllA$Freq[(which(AllA$ancestor_makesCpG == 0 & AllA$ancestor_TypeOfSite == "syn") )])
+            AllA_mean_value_syn_nCpG <- stats(AllA$aFreq[(which(AllA$ancestor_makesCpG == 0 & AllA$ancestor_TypeOfSite == "syn") )])
             
-            AllA_sem_vals_syn_nCpG<-error_bar(AllA$Freq[(which(AllA$ancestor_makesCpG == 0 & AllA$ancestor_TypeOfSite == "syn") )])
+            AllA_sem_vals_syn_nCpG<-error_bar(AllA$aFreq[(which(AllA$ancestor_makesCpG == 0 & AllA$ancestor_TypeOfSite == "syn") )])
         }
        
     }
     
     for (k in 1:length(AllT$ancestor_makesCpG)) {
         if (AllT$ancestor_makesCpG[k] == 1 && AllT$ancestor_TypeOfSite[k] == "syn") {
-            AllT_mean_value_syn_CpG <- stats(AllT$Freq[(which(AllT$ancestor_makesCpG == 1 & AllT$ancestor_TypeOfSite == "syn") )])
-            AllT_sem_vals_syn_CpG<-error_bar(AllT$Freq[(which(AllT$ancestor_makesCpG == 1 & AllT$ancestor_TypeOfSite == "syn") )])
+            AllT_mean_value_syn_CpG <- stats(AllT$aFreq[(which(AllT$ancestor_makesCpG == 1 & AllT$ancestor_TypeOfSite == "syn") )])
+            AllT_sem_vals_syn_CpG<-error_bar(AllT$aFreq[(which(AllT$ancestor_makesCpG == 1 & AllT$ancestor_TypeOfSite == "syn") )])
         }
         
         if (AllT$ancestor_makesCpG[k] == 0 && AllT$ancestor_TypeOfSite[k] == "syn") {
-            AllT_mean_value_syn_nCpG<- stats(AllT$Freq[(which(AllT$ancestor_makesCpG == 0 & AllT$ancestor_TypeOfSite == "syn") )])
-            AllT_sem_vals_syn_nCpG<-error_bar(AllT$Freq[(which(AllT$ancestor_makesCpG == 0 & AllT$ancestor_TypeOfSite == "syn") )])
+            AllT_mean_value_syn_nCpG<- stats(AllT$aFreq[(which(AllT$ancestor_makesCpG == 0 & AllT$ancestor_TypeOfSite == "syn") )])
+            AllT_sem_vals_syn_nCpG<-error_bar(AllT$aFreq[(which(AllT$ancestor_makesCpG == 0 & AllT$ancestor_TypeOfSite == "syn") )])
         }
         
     }
@@ -109,7 +109,7 @@ write.csv(df, file = "output/ancestor/alldatapoints.csv")
 
 
 # graphing 
-png("output/ancestor/Costly/Costly_Graph_AllR_12_7_2019.png", width = 15, height = 8, units = "in", res= 500)
+png("output/ancestor/Costly/Costly_Graph_AllR_12_11_2019.png", width = 15, height = 8, units = "in", res= 500)
 #--------------------
 par(mar=c(0,2,3,2), oma=c(6,4,1,1), mfrow=c(2,1))#, bg = "darkseagreen1"
 #changed mar(0,2,3,2) oma(6,4,1,1)
