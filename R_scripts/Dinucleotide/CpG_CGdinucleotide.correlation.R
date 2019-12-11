@@ -4,7 +4,7 @@ library(ggthemes)
 library(reshape2)
 colors<-qualitative_hcl(6, palette="Dark3")
 
-cpgMF<-read.csv("output/consensus/alldatapoints.csv", stringsAsFactors = F, row.names = 1)
+cpgMF<-read.csv("output/Costly/alldatapoints.csv", stringsAsFactors = F, row.names = 1)
 dfA<-cpgMF[,c("Virus","AsynNC_C")]
 dfT<-cpgMF[,c("Virus","TsynNC_C")]
 colnames(dfA)[2]<-"CpG.Cost.A"
@@ -12,7 +12,7 @@ colnames(dfT)[2]<-"CpG.Cost.T"
 
 df<-merge(dfA, dfT, by="Virus")
 
-di<-read.csv("output/consensus/Dinuc/CG_Summary.csv", stringsAsFactors = F, row.names = 1)
+di<-read.csv("output/Dinuc/CG_Summary.csv", stringsAsFactors = F, row.names = 1)
 di<-di[,c("Virus", "cg.rho")]
 
 df2<-merge(df, di, by="Virus")
@@ -71,9 +71,9 @@ cor.test(df.plot$value, df.plot$CG.rho,method = "spearman" )
 # -0.5505676 
 
 
-text1<-paste("A:rho == -0.5980877 ")
-text2<-paste("T:rho == -0.5157605")
-text<-paste("rho = -0.56, P=5.8e-8")
+text1<-paste("A:rho == -0.3985901")
+text2<-paste("T:rho == -0.4668179")
+text<-paste("rho = -0.44, P=2.5e-5")
 
 ggplot(df.plot, aes(x=CG.rho, y=value, color=variable))+
     scale_y_continuous(trans="log10",breaks = c(1,2,5, 10,20, 50, 100, 200),labels=c(1,2,5, 10,20, 50, 100, 200))+
@@ -89,7 +89,7 @@ ggplot(df.plot, aes(x=CG.rho, y=value, color=variable))+
     guides(color = guide_legend(override.aes = list(linetype = 0, size=2)))+
     annotate(geom="text",x=0.75, y=200, label=text, hjust=0, size=2)
 
-ggsave("output/consensus/Dinuc/CPG_correlation.plot1.pdf", width = 5,height = 4)  
+ggsave("output/Dinuc/CPG_correlation.plot1.pdf", width = 5,height = 4)  
 
 
 ggplot(df.plot, aes(x=CG.rho, y=value, color=variable))+
@@ -106,4 +106,5 @@ ggplot(df.plot, aes(x=CG.rho, y=value, color=variable))+
     guides(color = guide_legend(override.aes = list(linetype = 0, size=2)))+
     annotate(geom="text",x=0.75, y=200, label=text1, hjust=0, size=2, parse=T)+
     annotate(geom="text",x=0.75, y=150, label=text2, hjust=0, size=2, parse=T)
-ggsave("output/consensus/Dinuc/CPG_correlation.plot2.pdf", width = 5,height = 4)  
+ggsave("output/Dinuc/CPG_correlation.plot2.pdf", width = 5,height = 4)  
+

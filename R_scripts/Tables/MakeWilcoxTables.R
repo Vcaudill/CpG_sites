@@ -3,19 +3,13 @@
 #makesCpG <-> ancestor_makesCpG
 #wtnt_consensus<->ancestor
 #TypeOfSite<->ancestor_TypeOfSite
-#Freq <-> qFreq
+#Freq <-> aFreq
 Tables = function(truename, csv_file){ 
-  #setwd("..")
-  #truename ="Humanherpesvirus2_gD"
+
   truenamecsv= paste(truename, ".csv", sep="")
   print(truenamecsv)
   DF<- read.csv(csv_file)
-  #if(DF<- read.csv(paste(place, truenamecsv, sep="")) == FALSE) {
-    #DF<- read.csv(paste("data/data_2019/Csv/new_for_costly", truenamecsv, sep=""))}
-  #}
-  #load data as DF
-  # Wilcox test
-  #Wilcox_test(DF, truename)
+ 
   return(DF)
   }
 
@@ -32,14 +26,14 @@ Wilcox_test = function(data, truename){
   options(scipen=999)
   #prevents pvalues from becoming scientific notation. 
   
-  array1 = data$aFreq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'syn' & data$ancestor_makesCpG == 1]
-  array2 = data$aFreq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'syn' & data$ancestor_makesCpG == 0]
-  array3 = data$aFreq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'nonsyn' & data$ancestor_makesCpG == 1]
-  array4 = data$aFreq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'nonsyn' & data$ancestor_makesCpG == 0]
-  syna = data$aFreq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'syn']
-  nonsyna = data$aFreq[data$ancestor =="a" & data$ancestor_TypeOfSite == 'nonsyn']
-  CpGa = data$aFreq[data$ancestor =="a" & data$ancestor_makesCpG == 1]
-  nonCpGa = data$aFreq[data$ancestor =="a" &  data$ancestor_makesCpG == 0]
+  array1 = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'syn' & data$makesCpG == 1]
+  array2 = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'syn' & data$makesCpG == 0]
+  array3 = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'nonsyn' & data$makesCpG == 1]
+  array4 = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'nonsyn' & data$makesCpG == 0]
+  syna = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'syn']
+  nonsyna = data$Freq[data$wtnt_consensus =="a" & data$TypeOfSite == 'nonsyn']
+  CpGa = data$Freq[data$wtnt_consensus =="a" & data$makesCpG == 1]
+  nonCpGa = data$Freq[data$wtnt_consensus =="a" &  data$makesCpG == 0]
   
   print("For a: Comparing makes CpG with noCpG (syn). Wilcox test less: red/blue")
   print(wilcox.test(array1, array2, alternative='less'))
@@ -55,14 +49,14 @@ Wilcox_test = function(data, truename){
   pVals = c(pVals,format(wilcox.test(syna, nonsyna, alternative='greater')$p.value, nsmall = 6))
   print(pVals)
   
-  array5 = data$aFreq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'syn' & data$ancestor_makesCpG == 1]
-  array6 = data$aFreq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'syn' & data$ancestor_makesCpG == 0]
-  array7 = data$aFreq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'nonsyn' & data$ancestor_makesCpG == 1]
-  array8 = data$aFreq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'nonsyn' & data$ancestor_makesCpG == 0]
-  synt = data$aFreq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'syn']
-  nonsynt = data$aFreq[data$ancestor =="t" & data$ancestor_TypeOfSite == 'nonsyn']
-  CpGt = data$aFreq[data$ancestor =="t" & data$ancestor_makesCpG == 1]
-  nonCpGt = data$aFreq[data$ancestor =="t" &  data$ancestor_makesCpG == 0]
+  array5 = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'syn' & data$makesCpG == 1]
+  array6 = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'syn' & data$makesCpG == 0]
+  array7 = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'nonsyn' & data$makesCpG == 1]
+  array8 = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'nonsyn' & data$makesCpG == 0]
+  synt = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'syn']
+  nonsynt = data$Freq[data$wtnt_consensus =="t" & data$TypeOfSite == 'nonsyn']
+  CpGt = data$Freq[data$wtnt_consensus =="t" & data$makesCpG == 1]
+  nonCpGt = data$Freq[data$wtnt_consensus =="t" &  data$makesCpG == 0]
   
   print("For t: Comparing makes CpG with noCpG (syn). Wilcox test less: red/blue")
   print(wilcox.test(array5, array6, alternative='less'))
@@ -84,15 +78,13 @@ Wilcox_test = function(data, truename){
 
 makeTable <- function(Pvalues, truename, nice_name,output){
   options(scipen = 999)
-  #setwd("output/redeploy/")
+  
   truenamepdf= paste(output,truename,".pdf",sep="")
   truenamepng= paste(truename,"tables", ".png", sep="")
-  #print(truenamepdf)
   #prevents pvalues from becoming scientific notation
   options(warn=-1)
   #suppress warnings
-  
-  #setwd("~/Desktop/Something_Cool-CpG_Sites-/Tables")
+
   #table construct
   pdf(truenamepdf, width = 7, height= 5)
   #png(truenamepng, width = 6.75, height = 6.75, units = "in", res= 300)
@@ -160,47 +152,4 @@ makeTable <- function(Pvalues, truename, nice_name,output){
   dev.off()
   
 }
-
-#loop through namelist (all viruses)
-# 
-# hyphy_virus<-read.csv("data/list/old_lists/CpG_List_NewdataRW.csv")
-# for(i in 1:nrow(hyphy_virus)){
-#   nice_name <- as.character(hyphy_virus$nice_name[i])
-#   print(hyphy_virus$name[i])
-#   name = as.character(hyphy_virus$name[i])
-#   #if(grep(".fasta",hyphy_virus$name[i])){
-#   #  splitname<-unlist(strsplit(as.character(hyphy_virus$name[i]),".fasta"))
-#   truename<- name
-#    # }
-#  # else{(truename<-name)}
-#   print(truename)
-#   if (truename == "Humanherpesvirus2_gD") {
-#     next
-#     }
-# #     
-#   place= hyphy_virus$place[i]
-#   DF=Tables(truename, place)
-#   Pvalues=Wilcox_test(DF, truename)
-#   output = hyphy_virus$output_path[i]
-#   makeTable(Pvalues, truename, nice_name, output)
-#   data_place = hyphy_virus$place[i]
-#   data_output = paste(output, "M_frequency_graphs/", sep="")
-#   source(("R_scripts/graphs/M_frequency_graph.R"))
-#   comparing_CpG_Syn_Nonsyn_new(truename,nice_name,data_place,data_output)
-#   }
-# readfile <- function(truenamecsv){
-#   tryCatch(
-#     # This is what I want to do...
-#     {
-#       DF<- read.csv(paste("new_data/Consensus/", truenamecsv, sep=""))
-#       return(DF)
-#     },
-#     # ... but if an error occurs, tell me what happened: 
-#     error=function(error_message) {
-#       message("This is my custom message.")
-#       message("Error in file(file, "rt") : cannot open the connection")
-#       message(error_message)
-#       return(NA)
-#     }
-#   )
 

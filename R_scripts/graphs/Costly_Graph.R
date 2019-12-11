@@ -6,6 +6,7 @@ library(varhandle)
 #makesCpG<->ancestor_makesCpG
 #wtnt_consensus<->ancestor
 #TypeOfSite<->ancestor_TypeOfSite
+#aFreq<->Freq
 mean_or_median<- "mean"
 #Function to help create errorbars
 sem<-function(x){
@@ -20,8 +21,8 @@ count = 1
 for (i in 1:length(my.list)){  
     data<-read.csv(paste0("output/Csv/",my.list[i]))
     Name<-Virus_info[grep(strsplit(my.list[i],".csv"), Virus_info$File), ]
-    cpg.y<-subset(data, ancestor_makesCpG==1)
-    cpg.n<-subset(data, ancestor_makesCpG==0)
+    cpg.y<-subset(data, makesCpG==1)
+    cpg.n<-subset(data, makesCpG==0)
     #subset further into letters nuclotideCpgforming or nucotideNonGpg
     AC<-subset(cpg.y, ancestor=='a')
     ANC<-subset(cpg.n, ancestor=='a')
@@ -43,30 +44,30 @@ for (i in 1:length(my.list)){
     AllT = rbind(TC, TNC)
     
     # for loops to caculate mean ans errorbars
-    for (j in 1:length(AllA$ancestor_makesCpG)) {
-        if (AllA$ancestor_makesCpG[j] == 1 && AllA$ancestor_TypeOfSite[j] == "syn") {
-            AllA_mean_value_syn_CpG <- stats(AllA$aFreq[(which(AllA$ancestor_makesCpG == 1 & AllA$ancestor_TypeOfSite == "syn") )])
-            AllA_sem_vals_syn_CpG<-error_bar(AllA$aFreq[(which(AllA$ancestor_makesCpG == 1 & AllA$ancestor_TypeOfSite == "syn") )])
+    for (j in 1:length(AllA$makesCpG)) {
+        if (AllA$makesCpG[j] == 1 && AllA$TypeOfSite[j] == "syn") {
+            AllA_mean_value_syn_CpG <- stats(AllA$Freq[(which(AllA$makesCpG == 1 & AllA$TypeOfSite == "syn") )])
+            AllA_sem_vals_syn_CpG<-error_bar(AllA$Freq[(which(AllA$makesCpG == 1 & AllA$TypeOfSite == "syn") )])
             
         }
         
-        if (AllA$ancestor_makesCpG[j] == 0 && AllA$ancestor_TypeOfSite[j] == "syn") {
-            AllA_mean_value_syn_nCpG <- stats(AllA$aFreq[(which(AllA$ancestor_makesCpG == 0 & AllA$ancestor_TypeOfSite == "syn") )])
+        if (AllA$makesCpG[j] == 0 && AllA$TypeOfSite[j] == "syn") {
+            AllA_mean_value_syn_nCpG <- stats(AllA$Freq[(which(AllA$makesCpG == 0 & AllA$TypeOfSite == "syn") )])
             
-            AllA_sem_vals_syn_nCpG<-error_bar(AllA$aFreq[(which(AllA$ancestor_makesCpG == 0 & AllA$ancestor_TypeOfSite == "syn") )])
+            AllA_sem_vals_syn_nCpG<-error_bar(AllA$Freq[(which(AllA$makesCpG == 0 & AllA$TypeOfSite == "syn") )])
         }
        
     }
     
-    for (k in 1:length(AllT$ancestor_makesCpG)) {
-        if (AllT$ancestor_makesCpG[k] == 1 && AllT$ancestor_TypeOfSite[k] == "syn") {
-            AllT_mean_value_syn_CpG <- stats(AllT$aFreq[(which(AllT$ancestor_makesCpG == 1 & AllT$ancestor_TypeOfSite == "syn") )])
-            AllT_sem_vals_syn_CpG<-error_bar(AllT$aFreq[(which(AllT$ancestor_makesCpG == 1 & AllT$ancestor_TypeOfSite == "syn") )])
+    for (k in 1:length(AllT$makesCpG)) {
+        if (AllT$makesCpG[k] == 1 && AllT$TypeOfSite[k] == "syn") {
+            AllT_mean_value_syn_CpG <- stats(AllT$Freq[(which(AllT$makesCpG == 1 & AllT$TypeOfSite == "syn") )])
+            AllT_sem_vals_syn_CpG<-error_bar(AllT$Freq[(which(AllT$makesCpG == 1 & AllT$TypeOfSite == "syn") )])
         }
         
-        if (AllT$ancestor_makesCpG[k] == 0 && AllT$ancestor_TypeOfSite[k] == "syn") {
-            AllT_mean_value_syn_nCpG<- stats(AllT$aFreq[(which(AllT$ancestor_makesCpG == 0 & AllT$ancestor_TypeOfSite == "syn") )])
-            AllT_sem_vals_syn_nCpG<-error_bar(AllT$aFreq[(which(AllT$ancestor_makesCpG == 0 & AllT$ancestor_TypeOfSite == "syn") )])
+        if (AllT$makesCpG[k] == 0 && AllT$TypeOfSite[k] == "syn") {
+            AllT_mean_value_syn_nCpG<- stats(AllT$Freq[(which(AllT$makesCpG == 0 & AllT$TypeOfSite == "syn") )])
+            AllT_sem_vals_syn_nCpG<-error_bar(AllT$Freq[(which(AllT$makesCpG == 0 & AllT$TypeOfSite == "syn") )])
         }
         
     }
@@ -105,11 +106,11 @@ for (i in 1:length(my.list)){
 
 
 df <- apply(data_points,2,as.character)
-write.csv(df, file = "output/ancestor/alldatapoints.csv")
+write.csv(df, file = "output/Costly/alldatapoints.csv")
 
 
 # graphing 
-png("output/ancestor/Costly/Costly_Graph_AllR_12_11_2019.png", width = 15, height = 8, units = "in", res= 500)
+png("output/Costly/Costly_Graph_AllR_12_11_2019.png", width = 15, height = 8, units = "in", res= 500)
 #--------------------
 par(mar=c(0,2,3,2), oma=c(6,4,1,1), mfrow=c(2,1))#, bg = "darkseagreen1"
 #changed mar(0,2,3,2) oma(6,4,1,1)

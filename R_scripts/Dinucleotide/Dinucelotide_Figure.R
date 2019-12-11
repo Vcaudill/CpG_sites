@@ -12,10 +12,10 @@ library(emojifont)
 colors<-qualitative_hcl(6, palette="Dark3")
 
 #create summary table of dinucleotide rho values
-dint<-list.files("output/consensus/Dinuc/", pattern = "Dinuc.freq")
+dint<-list.files("output/Dinuc/", pattern = "Dinuc.freq")
 Di<-list()
 for (i in 1:length(dint)){
-    dt<-read.csv(paste0("output/consensus/Dinuc/", dint[i]), stringsAsFactors = F, row.names = 1)
+    dt<-read.csv(paste0("output/Dinuc/", dint[i]), stringsAsFactors = F, row.names = 1)
     dt<-dt[, c("diNT", "Rho")]
     fname<-substr(dint[i], start=12, stop=(nchar(dint[i])-4))
     Di[[i]]<-dt
@@ -26,13 +26,13 @@ for (i in 1:length(Di)) {
 }
 
 nt.Rho<-Di%>% purrr::reduce(full_join, by='diNt')    
-write.csv(nt.Rho, "output/consensus/Dinuc/Rho_summary.csv")
+write.csv(nt.Rho, "output/Dinuc/Rho_summary.csv")
 #####
 
 #create CpG dinucloetide Rho value summary across all viruses
 cpg<-data.frame(virus=colnames(nt.Rho)[2:ncol(nt.Rho)])
 cpg$cg.rho<-as.numeric(nt.Rho[which(nt.Rho$diNt=="cg"), 2:ncol(nt.Rho)])
-write.csv(cpg, "output/consensus/Dinuc/CG_rho_values.csv")
+write.csv(cpg, "output/Dinuc/CG_rho_values.csv")
 
 # Attach RNA or DNA info. 
 info<-read.csv("output/Dinuc/Virus_info.csv", row.names = 1)
@@ -40,7 +40,7 @@ cpg<-merge(cpg, info, by="virus")
 cpg$Type<-factor(cpg$Type, levels=c("RNA", "DNA"))
 cpg<-cpg[order(cpg$Type),]
 cpg$Virus<-factor(cpg$Virus, level=paste0(cpg$Virus))
-write.csv(cpg, "output/consensus/Dinuc/CG_summary.csv")
+write.csv(cpg, "output/Dinuc/CG_summary.csv")
 
 n<-nrow(cpg[cpg$Type=="RNA",])
 
@@ -66,7 +66,7 @@ ggplot(cpg, aes(x=Virus, y=cg.rho, color=Type))+geom_point()+
           legend.text = element_text(size=8), legend.key.size = unit(0.3, "cm"))
 
 #top, right, bottom, and left  
-ggsave("output/consensus/Dinuc/Rho_Figure.pdf", width=9, height=4)
+ggsave("output/Dinuc/Rho_Figure.pdf", width=9, height=4)
 
 
 
