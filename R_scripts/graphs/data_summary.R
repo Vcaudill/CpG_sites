@@ -191,6 +191,17 @@ sum(tally$Consensus_t_Syn_CpG_v_NonCpG)/nrow(tally)#% Syn T Costly
 sum(tally$Consensus_t_NonSyn_CpG_v_NonCpG)/nrow(tally) #% NonSyn T Costly
 sum(tally$Consensus_t_Syn_v_NonSyn)/nrow(tally) #% T Syn more Costly then NonSyn
 
+text<- paste0("% both Syn A&T Costly = ", sum(tally$SynCpg)/(2*nrow(tally)),
+              "\n% both NonSyn A&T Costly = ",sum(tally$NonSynCpg)/(2*nrow(tally)),
+              "\n% of Syn more Costly then NonSyn = ",sum(tally$SynNonSyn)/(2*nrow(tally)),
+              "\n% Syn A Costly = ",sum(tally$Consensus_a_Syn_CpG_v_NonCpG)/nrow(tally),
+              "\n% NonSyn A Costly = ",sum(tally$Consensus_a_NonSyn_CpG_v_NonCpG)/nrow(tally),
+              "\n% A Syn more Costly then NonSyn = ",sum(tally$Consensus_a_Syn_v_NonSyn)/nrow(tally),
+              "\n% Syn T Costly = ",sum(tally$Consensus_t_Syn_CpG_v_NonCpG)/nrow(tally),
+              "\n% NonSyn T Costly = ",sum(tally$Consensus_t_NonSyn_CpG_v_NonCpG)/nrow(tally),
+              "\n% T Syn more Costly then NonSyn = ",sum(tally$Consensus_t_Syn_v_NonSyn)/nrow(tally))
+writeLines(text, "output/data_summary/stats_info.txt")
+
 #### simple stats ancestor
 
 sum(tally$ASynCpg)/(2*nrow(tally)) #% both Syn A&T Costly
@@ -204,4 +215,16 @@ sum(tally$Ancestor_a_Syn_v_NonSyn)/nrow(tally) #% A Syn more Costly then NonSyn
 sum(tally$Ancestor_t_Syn_CpG_v_NonCpG)/nrow(tally)#% Syn T Costly
 sum(tally$Ancestor_t_NonSyn_CpG_v_NonCpG)/nrow(tally) #% NonSyn T Costly
 sum(tally$Ancestor_t_Syn_v_NonSyn)/nrow(tally) #% T Syn more Costly then NonSyn
+
+atext<- paste0("% both Syn A&T Costly = ", sum(tally$ASynCpg)/(2*nrow(tally)),
+              "\n% both NonSyn A&T Costly = ",sum(tally$ANonSynCpg)/(2*nrow(tally)),
+              "\n% of Syn more Costly then NonSyn = ",sum(tally$ASynNonSyn)/(2*nrow(tally)),
+              "\n% Syn A Costly = ",sum(tally$Ancestor_a_Syn_CpG_v_NonCpG)/nrow(tally),
+              "\n% NonSyn A Costly = ",sum(tally$Ancestor_a_NonSyn_CpG_v_NonCpG)/nrow(tally),
+              "\n% A Syn more Costly then NonSyn = ",sum(tally$Ancestor_a_Syn_v_NonSyn)/nrow(tally),
+              "\n% Syn T Costly = ",sum(tally$Ancestor_t_Syn_CpG_v_NonCpG)/nrow(tally),
+              "\n% NonSyn T Costly = ",sum(tally$Ancestor_t_NonSyn_CpG_v_NonCpG)/nrow(tally),
+              "\n% T Syn more Costly then NonSyn = ",sum(tally$Ancestor_t_Syn_v_NonSyn)/nrow(tally))
+writeLines(atext, "output/supplenentary_based_on_ancestor/data_summary/stats_info.txt")
+
 

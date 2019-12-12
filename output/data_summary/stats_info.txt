@@ -1,0 +1,9 @@
+% both Syn A&T Costly = 0.714285714285714
+% both NonSyn A&T Costly = 0.321428571428571
+% of Syn more Costly then NonSyn = 0.785714285714286
+% Syn A Costly = 0.761904761904762
+% NonSyn A Costly = 0.238095238095238
+% A Syn more Costly then NonSyn = 0.904761904761905
+% Syn T Costly = 0.666666666666667
+% NonSyn T Costly = 0.404761904761905
+% T Syn more Costly then NonSyn = 0.904761904761905
