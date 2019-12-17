@@ -112,7 +112,7 @@ dev.off()
 ############################### ancestor ###################################
 palette(alpha(c("red","deepskyblue1","green")))
 
-png("output/supplenentary_based_on_ancestor/data_summary/data_points.png", width = 6.75, height = 6.75, units = "in", res= 300)
+png("output/supplementary_based_on_ancestor/data_summary/data_points.png", width = 6.75, height = 6.75, units = "in", res= 300)
 par(mfrow=c(2,2))#, bg = "darkseagreen1"
 
 plot(tally$Number_of_Sequences,tally$Number_of_Nucleotides,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynCpg)],pch=c(19,15,17)[as.factor(tally$ASynCpg)],cex=1.5, main="Syn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of Nucletides")
@@ -134,7 +134,7 @@ dev.off()
 palette(alpha(c("red","deepskyblue1","green")))
 
 
-png("output/supplenentary_based_on_ancestor/data_summary/data_CpG_sites.png", width = 6.75, height = 6.75, units = "in", res= 300)
+png("output/supplementary_based_on_ancestor/data_summary/data_CpG_sites.png", width = 6.75, height = 6.75, units = "in", res= 300)
 par(mfrow=c(2,2))#, bg = "darkseagreen1"
 
 plot(tally$Number_of_Sequences,tally$A_CpG_total,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynCpg)],pch=c(19,15,17)[as.factor(tally$ASynCpg)],cex=1.5, main="Syn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of possible CpG sites")
@@ -157,7 +157,7 @@ dev.off()
 palette(alpha(c("red","deepskyblue1","green")))
 
 
-png("output/supplenentary_based_on_ancestor/data_summary/data_CpG_mutations.png", width = 6.75, height = 6.75, units = "in", res= 300)
+png("output/supplementary_based_on_ancestor/data_summary/data_CpG_mutations.png", width = 6.75, height = 6.75, units = "in", res= 300)
 par(mfrow=c(2,2))#, bg = "darkseagreen1"
 
 plot(tally$Number_of_Sequences,tally$ancestor_Count_of_CpG_mutations,log='xy',col=c("red","green","deepskyblue1")[as.factor(tally$ASynCpg)],pch=c(19,15,17)[as.factor(tally$ASynCpg)],cex=1.5, main="Syn CpG vs NonCpG",xlab = "# of Sequences", ylab = "# of CpG Mutations")
@@ -191,15 +191,15 @@ sum(tally$Consensus_t_Syn_CpG_v_NonCpG)/nrow(tally)#% Syn T Costly
 sum(tally$Consensus_t_NonSyn_CpG_v_NonCpG)/nrow(tally) #% NonSyn T Costly
 sum(tally$Consensus_t_Syn_v_NonSyn)/nrow(tally) #% T Syn more Costly then NonSyn
 
-text<- paste0("% both Syn A&T Costly = ", sum(tally$SynCpg)/(2*nrow(tally)),
-              "\n% both NonSyn A&T Costly = ",sum(tally$NonSynCpg)/(2*nrow(tally)),
-              "\n% of Syn more Costly then NonSyn = ",sum(tally$SynNonSyn)/(2*nrow(tally)),
-              "\n% Syn A Costly = ",sum(tally$Consensus_a_Syn_CpG_v_NonCpG)/nrow(tally),
-              "\n% NonSyn A Costly = ",sum(tally$Consensus_a_NonSyn_CpG_v_NonCpG)/nrow(tally),
-              "\n% A Syn more Costly then NonSyn = ",sum(tally$Consensus_a_Syn_v_NonSyn)/nrow(tally),
-              "\n% Syn T Costly = ",sum(tally$Consensus_t_Syn_CpG_v_NonCpG)/nrow(tally),
-              "\n% NonSyn T Costly = ",sum(tally$Consensus_t_NonSyn_CpG_v_NonCpG)/nrow(tally),
-              "\n% T Syn more Costly then NonSyn = ",sum(tally$Consensus_t_Syn_v_NonSyn)/nrow(tally))
+text<- paste0("% both Syn A&T Costly = ", sum(tally$SynCpg)/(2*nrow(tally)), " Count ", sum(tally$SynCpg),
+              "\n% both NonSyn A&T Costly = ",sum(tally$NonSynCpg)/(2*nrow(tally))," Count ", sum(tally$NonSynCpg),
+              "\n% of Syn more Costly then NonSyn = ",sum(tally$SynNonSyn)/(2*nrow(tally))," Count ", sum(tally$SynNonSyn),
+              "\n% Syn A Costly = ",sum(tally$Consensus_a_Syn_CpG_v_NonCpG)/nrow(tally)," Count ", sum(tally$Consensus_a_Syn_CpG_v_NonCpG),
+              "\n% NonSyn A Costly = ",sum(tally$Consensus_a_NonSyn_CpG_v_NonCpG)/nrow(tally)," Count ", sum(tally$Consensus_a_NonSyn_CpG_v_NonCpG),
+              "\n% A Syn more Costly then NonSyn = ",sum(tally$Consensus_a_Syn_v_NonSyn)/nrow(tally)," Count ", sum(tally$Consensus_a_Syn_v_NonSyn),
+              "\n% Syn T Costly = ",sum(tally$Consensus_t_Syn_CpG_v_NonCpG)/nrow(tally)," Count ", sum(tally$Consensus_t_Syn_CpG_v_NonCpG),
+              "\n% NonSyn T Costly = ",sum(tally$Consensus_t_NonSyn_CpG_v_NonCpG)/nrow(tally)," Count ",sum(tally$Consensus_t_NonSyn_CpG_v_NonCpG),
+              "\n% T Syn more Costly then NonSyn = ",sum(tally$Consensus_t_Syn_v_NonSyn)/nrow(tally)," Count ", sum(tally$Consensus_t_Syn_v_NonSyn))
 writeLines(text, "output/data_summary/stats_info.txt")
 
 #### simple stats ancestor
@@ -216,15 +216,15 @@ sum(tally$Ancestor_t_Syn_CpG_v_NonCpG)/nrow(tally)#% Syn T Costly
 sum(tally$Ancestor_t_NonSyn_CpG_v_NonCpG)/nrow(tally) #% NonSyn T Costly
 sum(tally$Ancestor_t_Syn_v_NonSyn)/nrow(tally) #% T Syn more Costly then NonSyn
 
-atext<- paste0("% both Syn A&T Costly = ", sum(tally$ASynCpg)/(2*nrow(tally)),
-              "\n% both NonSyn A&T Costly = ",sum(tally$ANonSynCpg)/(2*nrow(tally)),
-              "\n% of Syn more Costly then NonSyn = ",sum(tally$ASynNonSyn)/(2*nrow(tally)),
-              "\n% Syn A Costly = ",sum(tally$Ancestor_a_Syn_CpG_v_NonCpG)/nrow(tally),
-              "\n% NonSyn A Costly = ",sum(tally$Ancestor_a_NonSyn_CpG_v_NonCpG)/nrow(tally),
-              "\n% A Syn more Costly then NonSyn = ",sum(tally$Ancestor_a_Syn_v_NonSyn)/nrow(tally),
-              "\n% Syn T Costly = ",sum(tally$Ancestor_t_Syn_CpG_v_NonCpG)/nrow(tally),
-              "\n% NonSyn T Costly = ",sum(tally$Ancestor_t_NonSyn_CpG_v_NonCpG)/nrow(tally),
-              "\n% T Syn more Costly then NonSyn = ",sum(tally$Ancestor_t_Syn_v_NonSyn)/nrow(tally))
-writeLines(atext, "output/supplenentary_based_on_ancestor/data_summary/stats_info.txt")
+atext<- paste0("% both Syn A&T Costly = ", sum(tally$ASynCpg)/(2*nrow(tally))," Count ", sum(tally$ASynCpg),
+              "\n% both NonSyn A&T Costly = ",sum(tally$ANonSynCpg)/(2*nrow(tally))," Count ", sum(tally$ANonSynCpg),
+              "\n% of Syn more Costly then NonSyn = ",sum(tally$ASynNonSyn)/(2*nrow(tally))," Count ", sum(tally$ASynNonSyn),
+              "\n% Syn A Costly = ",sum(tally$Ancestor_a_Syn_CpG_v_NonCpG)/nrow(tally)," Count ",sum(tally$Ancestor_a_Syn_CpG_v_NonCpG),
+              "\n% NonSyn A Costly = ",sum(tally$Ancestor_a_NonSyn_CpG_v_NonCpG)/nrow(tally)," Count ", sum(tally$Ancestor_a_NonSyn_CpG_v_NonCpG),
+              "\n% A Syn more Costly then NonSyn = ",sum(tally$Ancestor_a_Syn_v_NonSyn)/nrow(tally)," Count ", sum(tally$Ancestor_a_Syn_v_NonSyn),
+              "\n% Syn T Costly = ",sum(tally$Ancestor_t_Syn_CpG_v_NonCpG)/nrow(tally)," Count ", sum(tally$Ancestor_t_Syn_CpG_v_NonCpG),
+              "\n% NonSyn T Costly = ",sum(tally$Ancestor_t_NonSyn_CpG_v_NonCpG)/nrow(tally)," Count ", sum(tally$Ancestor_t_NonSyn_CpG_v_NonCpG),
+              "\n% T Syn more Costly then NonSyn = ",sum(tally$Ancestor_t_Syn_v_NonSyn)/nrow(tally)," Count ", sum(tally$Ancestor_t_Syn_v_NonSyn))
+writeLines(atext, "output/supplementary_based_on_ancestor/data_summary/stats_info.txt")
 
 
