@@ -1,4 +1,4 @@
-﻿Virus,Number_of_Sequences,Number_of_Nucleotides,data_source,p-value Syn A->G  CpG v NonCpG ,p-value NonSyn A->G CpG v NonCpG,p-value A->G Syn v NonSyn,p-value Syn T->C CpG v NonCpG ,p-value NonSyn T->C  CpG v NonCpG,p-value T->C Syn v NonSyn,Ratio nonCpG/CpG A->G Syn,Ratio nonCpG/CpG T->C Syn,,,,,
+Virus,Number_of_Sequences,Number_of_Nucleotides,data_source,p-value Syn A->G  CpG v NonCpG ,p-value NonSyn A->G CpG v NonCpG,p-value A->G Syn v NonSyn,p-value Syn T->C CpG v NonCpG ,p-value NonSyn T->C  CpG v NonCpG,p-value T->C Syn v NonSyn,Ratio nonCpG/CpG A->G Syn,Ratio nonCpG/CpG T->C Syn,,,,,
 Dengue 1,1783,10176,NCBI GenBank 2019,<0.01,<0.01,<0.01,<0.01,<0.01,<0.01,3.06,4.37,,,,,
 Dengue 2,1466,10173,NCBI GenBank 2019,<0.01,0.0128,<0.01,<0.01,0.0297,<0.01,1.57,1.89,,,,,
 Dengue 3,959,10170,NCBI GenBank 2019,<0.01,0.0191,<0.01,<0.01,<0.01,<0.01,2.90,3.54,,,,,
