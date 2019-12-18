@@ -109,7 +109,8 @@ write.csv(df, file = "output/supplenentary_based_on_ancestor/alldatapoints_ances
 
 
 # graphing 
-png("output/supplenentary_based_on_ancestor/Costly_Graph_ancestor_AllR_12_11_2019.png", width = 15, height = 8, units = "in", res= 500)
+png("output/supplementary_based_on_ancestor/Costly_Graph_ancestor_AllR_12_17_2019_2.png", width = 15, height = 8, units = "in", res= 500)
+
 #--------------------
 par(mar=c(0,2,3,2), oma=c(6,4,1,1), mfrow=c(2,1))#, bg = "darkseagreen1"
 #changed mar(0,2,3,2) oma(6,4,1,1)
@@ -185,10 +186,10 @@ text(length(my.list)+2, 3, "↑", cex = 3, font = 2)
 text(length(my.list)+5, .4, " CpG Mutation \n Less Costly", cex = 1, font = 2)
 text(length(my.list)+2, .4, "↓", cex = 3, font = 2)
 #axis(1, at=1:length(my.list), labels=data_points$Virus, las= 2)
-legend('topright', legend=c("A -> G Syn","", "T -> C Syn", " "),
+legend('topright', legend=c(expression("A"  %->% "G Syn"),"", expression("T" %->% "C Syn"), " "),
        col=c("red", "white", "blue", "white"), lty=1, lwd= 3, cex = 1, pt.cex = 999)
 
-
+       expression("A" %->% "G : Core")
 par(mar=c(10,2,0,2))
 plot(data_points$order,data_points$total, ylim=c(60000, 45000000), type = "n", log ='y' , xlab=" ", yaxt = "n",  xaxt = "n", xlim=c(2, length(my.list) +5.5), las= 1, cex.main=3) 
 mtext('Amount of \n Data', side=2, line=3, at=1100000, las=0, cex = 1.3)
