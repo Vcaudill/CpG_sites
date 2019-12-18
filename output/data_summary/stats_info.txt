@@ -1,6 +1,8 @@
 % both Syn A&T Costly = 0.714285714285714 Count 60
 % both NonSyn A&T Costly = 0.321428571428571 Count 27
 % of Syn more Costly then NonSyn = 0.785714285714286 Count 66
+
+
 % Syn A Costly = 0.761904761904762 Count 32
 % NonSyn A Costly = 0.238095238095238 Count 10
 % A Syn more Costly then NonSyn = 0.904761904761905 Count 38
