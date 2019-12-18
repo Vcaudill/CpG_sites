@@ -115,7 +115,7 @@ par(mar=c(0,2,3,2), oma=c(6,4,1,1), mfrow=c(2,1))#, bg = "darkseagreen1"
 #changed mar(0,2,3,2) oma(6,4,1,1)
 x <- data_points$order 
 y <-  data_points$AsynNC_C
-plot(x,y, type = "n", log ='y' ,main="Cost of CpG-Creating Mutations (For Ancestor)", xlab=" ", yaxt = "n", ylab="Costly", xaxt = "n", ylim=c(0.02, 300), xlim=c(2, length(my.list) +5.5), las= 1, cex.main=3) 
+plot(x,y, type = "n", log ='y' ,main="Cost of CpG-Creating Mutations (Phylogenetic Approach)", xlab=" ", yaxt = "n", ylab="Costly", xaxt = "n", ylim=c(0.02, 300), xlim=c(2, length(my.list) +5.5), las= 1, cex.main=3) 
 
 abline(v=c(1.5,2.5,3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5,12.5,13.5,14.5,16.5,17.5,18.5,19.5,15.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5, 39.5, 40.5), col="grey", lty=c(1))
 
