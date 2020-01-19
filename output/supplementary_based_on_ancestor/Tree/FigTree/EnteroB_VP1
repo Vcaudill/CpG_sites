@@ -1,0 +1,302 @@
+#NEXUS
+begin taxa;
+	dimensions ntax=200;
+	taxlabels
+	0F9A1qKOu6
+	0Kfo2h0WO6
+	0tUqoXAlqD
+	0ua1T3CQRD
+	1AOjbUOOvE
+	1nLSuAovfo
+	2aowwTmZLM
+	381thA5phn
+	3c7proGBSI
+	4iNHHhkwRb
+	4nnuN55wZE
+	5U7sSHBXHy
+	6HOWAKpo3x
+	6wdwgSAiH9
+	6xHNjC3auI
+	7PXhhw2XLB
+	7iC5kqRRHA
+	81vqSWvg0L
+	8ParG9NGbc
+	8S9xVgxDvw
+	8i57XlLBYA
+	8zMK8o0qBv
+	9AgXT0RbVD
+	9JZ7cfk083
+	9gutRPO1Nw
+	9kRutopYmv
+	9x7hgKhyBj
+	ByXafQKYef
+	C90KEN6ueE
+	CTV8a7K7ok
+	CyEwx22PZg
+	D3DEgSriuK
+	DGaOtRIG4u
+	Diausdckda
+	EHhi9Ivp1V
+	EJJeIzuPwq
+	ELmeroeTqR
+	EWkg2UOJMw
+	EYRPCuCdCl
+	EkJyxqq7Ee
+	FIf1heJNu7
+	Fo4Y3iBqmH
+	Fqz70IJasf
+	Fwx1l3DFrQ
+	G9cjidAf2t
+	GE0ye6lfzl
+	GUwB4giDBW
+	HeFg6ZCS9q
+	HzFCc29awN
+	IB1KmqDUsM
+	IJZ2b8FIOS
+	J4WeHZRF9t
+	J9uS11fKuM
+	JDKK4q2dFC
+	K1Aje9eED0
+	KkTBaFZafg
+	KscVvYJIAz
+	LMOflx03PA
+	Ll33enwTfG
+	M45QkYuBul
+	MNQFaq9Hh5
+	Mi97tOLSxx
+	MiDVTU6G1y
+	MvKMCU5k9r
+	N8VpFvUSY1
+	NKvEdUpxqT
+	NPz6UXHDj9
+	NX8qEEG5Ei
+	NZSn5UILmj
+	Nc5udqqHlx
+	NvYXciYQkn
+	NyZGTk302R
+	Ol6dRUHlJq
+	PMpsMGmkSJ
+	POZMNMy1SG
+	Q8uptRfW7P
+	QIfSKPRJni
+	QMHuDSpCzB
+	QPIeiTPiCP
+	QiNDAxLzNC
+	QnR1Sz1yqt
+	QnSNVMmjGO
+	RKJ3iMTRZd
+	RMfxxYzQRP
+	RlnjrMZbbX
+	SVHJ2AxOnB
+	T9y2u1VLL8
+	TD9AzWwtGn
+	TusXxgUC7n
+	UCikCrNCJa
+	UTbdYC1htj
+	UYE3KxLD4H
+	Ucf1o9m7jz
+	UyE1IJQZeX
+	VGGytrMQqy
+	VO23IWhLcR
+	VvuBv2HxHX
+	W3IcdxT7Lf
+	WbKjvidPHq
+	WlpJx2MWkC
+	WxKGAxlkIQ
+	X2L8OJrzyW
+	XU8yth6DDc
+	XoOGQOXsgH
+	YLjpxHfUpe
+	YTad85VXMh
+	YnzlU65xdh
+	YqFdrrd5lK
+	Zo9ja07Zjs
+	aE4t2ekuya
+	b7FpFta46d
+	bIBYb3CgEC
+	blArlhchI4
+	blPh4djHCF
+	bq6VJaNpvC
+	c6fKW5QyNu
+	cVHfvxv0iH
+	dXePlHq5JD
+	dawWASgJW3
+	dvnW5i0uv9
+	eKr41GyC2x
+	eOoXXGFM3p
+	ePxeCakcsI
+	edkZDxu73r
+	elTtn0oN9v
+	ep3Rvgu3wV
+	fVyzxlg1It
+	fdxCuCjf3a
+	feNKxM7eTg
+	g6iYNERKRn
+	g6uJyUNg55
+	g8vqsQpQad
+	gdW1FlmUU5
+	gtWhJL6QNi
+	gvxfewQhD1
+	hTinBtEcCu
+	hVUgtjzwCP
+	htuQfAOg0S
+	i6yJuj3mod
+	i7cWS9zq5i
+	iOBeqw3Pwv
+	iXbVV5nB9p
+	iaRFAL7SUX
+	ieDitHzQX8
+	j5jeLOcXq5
+	jJytcn4zAJ
+	jRc1l02aJR
+	jpGyyt15UT
+	k8l2LHAQC2
+	kFwmoszkFA
+	knysNS1rYX
+	kwoRLUVzT1
+	lGYY2JUoEj
+	lMcDE0mEEC
+	lRSL5kv2ty
+	lsGexm7ZcR
+	lwTROmzD6r
+	mP9BZv3JIy
+	n30HCfPNAs
+	nR2Af2sA3r
+	o8ObIF2eWb
+	oCtW0LJPNa
+	oFj9PKC6as
+	ozGYTfX7P2
+	pI3kmVOFuA
+	pkA41agQxH
+	qDX7nqIcDB
+	qE9M0x46Fh
+	ql0VrkbTWX
+	r2fgCCqe29
+	r3aThWameD
+	rF3QgDCLbQ
+	rlqAdahiQj
+	sRiTgDPYMW
+	sXq38nsn6z
+	slHKtxiBt0
+	sz6eOwuHci
+	t38STF6qI5
+	tMDeWYqnH1
+	tOqlpnIQxX
+	tVnNVuYfqm
+	tZrYbczFbg
+	todxoDrodZ
+	tvbPTXjcJP
+	uEhHUQsN5X
+	ua0nmDnopa
+	ugbRZYiU1T
+	uuE6Tbyccu
+	uz1FSNDsNo
+	v1qTFlHZty
+	vGCHj6WUcW
+	vtlXOWaggr
+	wVMNm1NhSK
+	wYuK14vhIK
+	wnySdiHi4b
+	xvMetthbQA
+	yajbPjxcUO
+	ygqYUTWofu
+	zHLrDJlK3i
+	ztR1Y03GMC
+;
+end;
+
+begin trees;
+	tree tree_1 = [&R] (uEhHUQsN5X:0.012436,sXq38nsn6z:0.004601,((xvMetthbQA:4.7E-5,(SVHJ2AxOnB:0.028983,(Fo4Y3iBqmH:0.067042,YTad85VXMh:0.010669)[&label=11.114735]:0.011934)[&label=2.141876]:0.013172)[&label=9.290806]:0.070425,(todxoDrodZ:9.928373,((YqFdrrd5lK:0.043854,(N8VpFvUSY1:3.86E-4,Ll33enwTfG:0.006394)[&label=0.666929]:0.031716)[&label=15.292165]:0.124662,(fVyzxlg1It:0.307557,(slHKtxiBt0:0.0369,(((0Kfo2h0WO6:0.0133,(((EYRPCuCdCl:1.9E-5,(TD9AzWwtGn:1.4E-5,(pkA41agQxH:0.010282,(wVMNm1NhSK:0.00321,iXbVV5nB9p:0.007836)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=29.628928]:0.008605)[&label=7.003734]:0.002755,(((XoOGQOXsgH:0.0,0tUqoXAlqD:0.0)[&label=38.978006]:0.015612,(CTV8a7K7ok:0.0,7iC5kqRRHA:0.0)[&label=10.676765]:0.005042)[&label=0.0]:0.0,(6xHNjC3auI:0.009789,fdxCuCjf3a:0.010459)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=66.362656]:0.023063,(((nR2Af2sA3r:0.007121,(feNKxM7eTg:0.002663,(lsGexm7ZcR:0.002667,(dawWASgJW3:0.012181,(lGYY2JUoEj:0.0,5U7sSHBXHy:0.0)[&label=12.834571]:0.008307)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=7.867154]:0.007648)[&label=10.470662]:0.013612,(uz1FSNDsNo:0.058043,(bq6VJaNpvC:0.048326,(ieDitHzQX8:8.55E-4,EWkg2UOJMw:0.002004)[&label=0.351216]:0.004604)[&label=0.478022]:0.006722)[&label=3.983182]:0.005475)[&label=44.549176]:0.043101,(lRSL5kv2ty:0.001002,gtWhJL6QNi:0.00185)[&label=14.344689]:0.011031)[&label=12.115925]:0.012753)[&label=3.970458]:0.004233)[&label=2.460788]:0.002005,((DGaOtRIG4u:0.027459,(2aowwTmZLM:1.7E-5,(W3IcdxT7Lf:0.0,9AgXT0RbVD:0.0)[&label=41.273416]:0.01494)[&label=0.0]:1.7E-5)[&label=31.249182]:0.022443,(vGCHj6WUcW:0.033042,((NyZGTk302R:3.6E-5,(CyEwx22PZg:0.002242,(HeFg6ZCS9q:0.002989,dvnW5i0uv9:0.004999)[&label=1.41452]:0.001743)[&label=3.263468]:0.003466)[&label=75.265068]:0.047877,(b7FpFta46d:0.031383,(KkTBaFZafg:0.005284,JDKK4q2dFC:0.006791)[&label=35.241281]:0.017326)[&label=15.666312]:0.011903)[&label=13.771653]:0.00839)[&label=1.022543]:0.002215)[&label=1.374792]:0.002167)[&label=1.833601]:0.001552,((eOoXXGFM3p:0.024273,(iOBeqw3Pwv:0.011581,(((lMcDE0mEEC:0.005098,n30HCfPNAs:0.0)[&label=0.0]:0.0,(k8l2LHAQC2:0.002599,Ol6dRUHlJq:0.006019)[&label=0.965082]:0.002518)[&label=8.617234]:0.002731,(((NKvEdUpxqT:0.0,(9gutRPO1Nw:0.003108,(QMHuDSpCzB:0.0,RlnjrMZbbX:7.0E-6)[&label=0.0]:0.0)[&label=0.022555]:0.001187)[&label=22.134315]:0.003596,(edkZDxu73r:0.0031,(WbKjvidPHq:0.006257,(ePxeCakcsI:0.011227,i7cWS9zq5i:0.010497)[&label=0.0]:2.7E-5)[&label=0.0]:3.3E-5)[&label=9.843039]:9.81E-4)[&label=2.279291]:9.79E-4,(tOqlpnIQxX:0.062385,(((VGGytrMQqy:0.005155,(UyE1IJQZeX:0.005147,(g6iYNERKRn:0.006265,(wnySdiHi4b:0.010174,(EkJyxqq7Ee:0.030542,((UYE3KxLD4H:0.006753,NPz6UXHDj9:0.003894)[&label=2.718599]:9.05E-4,(IJZ2b8FIOS:0.004827,(GUwB4giDBW:0.001898,(QIfSKPRJni:0.004795,qE9M0x46Fh:0.0)[&label=0.0]:0.0)[&label=5.513063]:9.57E-4)[&label=4.039575]:9.48E-4)[&label=18.656809]:0.006403)[&label=0.0]:1.2E-5)[&label=28.540127]:0.004954)[&label=0.332461]:0.002445)[&label=0.0]:2.0E-6)[&label=0.0]:2.0E-6,(8ParG9NGbc:0.007887,((Mi97tOLSxx:0.008341,(G9cjidAf2t:0.012731,6HOWAKpo3x:4.1E-5)[&label=4.429571]:0.008635)[&label=2.384974]:0.002017,(ep3Rvgu3wV:0.002584,YnzlU65xdh:1.3E-5)[&label=9.025916]:0.002612)[&label=0.0]:1.6E-5)[&label=36.687827]:0.011563)[&label=6.503887]:0.001373,((tvbPTXjcJP:1.1E-5,8S9xVgxDvw:0.031088)[&label=6.021456]:0.002944,(((oFj9PKC6as:0.007792,((v1qTFlHZty:1.0E-6,(wYuK14vhIK:3.0E-6,(jpGyyt15UT:0.007809,(kwoRLUVzT1:0.0,(UTbdYC1htj:0.013067,POZMNMy1SG:0.002571)[&label=0.0]:1.0E-6)[&label=0.0]:0.0)[&label=0.0]:1.0E-6)[&label=0.0]:2.0E-6)[&label=0.0]:1.0E-6,(r3aThWameD:0.005166,eKr41GyC2x:0.00517)[&label=5.405574]:0.002612)[&label=0.0]:1.0E-6)[&label=7.31832]:0.002612,((tZrYbczFbg:0.005273,(RMfxxYzQRP:2.2E-5,(1AOjbUOOvE:0.0,(gdW1FlmUU5:0.0,NvYXciYQkn:0.0)[&label=0.0]:0.0)[&label=8.856461]:0.002579)[&label=4.526162]:0.002588)[&label=3.416215]:0.002628,(dXePlHq5JD:0.003081,((FIf1heJNu7:0.003662,(vtlXOWaggr:0.0058,(rF3QgDCLbQ:0.013002,lwTROmzD6r:0.002953)[&label=2.377236]:8.75E-4)[&label=0.0]:3.0E-6)[&label=21.376772]:0.0039,((0F9A1qKOu6:0.010851,elTtn0oN9v:0.002528)[&label=3.809856]:0.004093,(zHLrDJlK3i:0.00256,((gvxfewQhD1:0.00425,(iaRFAL7SUX:0.005285,(QnSNVMmjGO:3.0E-5,(Zo9ja07Zjs:3.1E-5,Fqz70IJasf:0.005634)[&label=66.07694]:0.04078)[&label=4.07673]:0.003621)[&label=0.0]:3.2E-5)[&label=25.323364]:0.006285,((YLjpxHfUpe:0.003157,(QPIeiTPiCP:0.003609,4iNHHhkwRb:0.003609)[&label=0.081718]:0.003543)[&label=0.0]:1.0E-6,(((((jJytcn4zAJ:0.0,blPh4djHCF:0.003155)[&label=8.763451]:0.003155,(1nLSuAovfo:0.005823,(knysNS1rYX:0.003916,((WxKGAxlkIQ:0.006872,T9y2u1VLL8:0.004822)[&label=5.86904]:0.001816,(EHhi9Ivp1V:0.008264,381thA5phn:0.0028)[&label=3.265746]:0.001567)[&label=10.467178]:0.001949)[&label=11.224048]:0.001873)[&label=7.666322]:0.003842)[&label=0.0]:0.0,(RKJ3iMTRZd:0.008487,(((D3DEgSriuK:0.002256,(ByXafQKYef:0.005613,(QiNDAxLzNC:2.2E-5,M45QkYuBul:1.8E-5)[&label=4.393343]:0.002668)[&label=3.520785]:0.002787)[&label=28.127028]:0.011804,(tVnNVuYfqm:0.00865,(XU8yth6DDc:0.006708,K1Aje9eED0:0.005718)[&label=10.15392]:0.008864)[&label=6.970873]:0.004192)[&label=4.310851]:0.002283,(sRiTgDPYMW:0.0,(6wdwgSAiH9:0.0,(blArlhchI4:0.0,(GE0ye6lfzl:0.003225,((81vqSWvg0L:0.0,(pI3kmVOFuA:0.001531,Ucf1o9m7jz:0.00314)[&label=0.0]:0.001344)[&label=0.0]:0.0,jRc1l02aJR:0.003153)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=3.440343]:9.88E-4,(J9uS11fKuM:0.0,Diausdckda:0.005763)[&label=28.528617]:0.004807)[&label=2.196343]:0.002956,(KscVvYJIAz:0.019336,(8i57XlLBYA:0.0,uuE6Tbyccu:0.003792)[&label=8.831103]:0.014031)[&label=26.44917]:0.036906)[&label=9.356467]:0.005547)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=5.027002]:0.002721)[&label=27.070178]:0.006369)[&label=3.760467]:0.001845)[&label=27.645477]:0.008326)[&label=8.057297]:0.003372)[&label=4.901698]:0.001649,(rlqAdahiQj:0.007976,TusXxgUC7n:0.003035)[&label=8.125914]:0.004107)[&label=0.367921]:6.13E-4)[&label=7.358552]:0.003065)[&label=2.264572]:0.008322)[&label=5.696529]:0.01535)[&label=1.232721]:8.19E-4)[&label=8.962497]:0.002064)[&label=25.138547]:0.01003)[&label=1.971477]:0.004342,((((aE4t2ekuya:0.004176,((LMOflx03PA:0.006771,9kRutopYmv:0.00809)[&label=37.025402]:0.017602,((ql0VrkbTWX:0.006771,((WlpJx2MWkC:0.006779,PMpsMGmkSJ:0.004789)[&label=0.0]:0.0,(j5jeLOcXq5:0.007155,(i6yJuj3mod:5.0E-6,htuQfAOg0S:9.61E-4)[&label=7.40855]:0.002176)[&label=26.633383]:0.004613)[&label=0.0]:0.0)[&label=5.12955]:0.003821,(7PXhhw2XLB:0.012122,(((((ua0nmDnopa:0.006922,(hVUgtjzwCP:0.006946,(4nnuN55wZE:0.017795,ztR1Y03GMC:0.003126)[&label=7.341669]:0.007851)[&label=1.604617]:8.4E-4)[&label=12.182779]:0.002049,(oCtW0LJPNa:0.0048,8zMK8o0qBv:0.004248)[&label=0.0]:0.0)[&label=1.077312]:8.95E-4,((MNQFaq9Hh5:0.002712,(MiDVTU6G1y:0.0,(X2L8OJrzyW:0.0,c6fKW5QyNu:0.0)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=9.258809]:0.00272,(QnR1Sz1yqt:0.007346,kFwmoszkFA:0.002676)[&label=0.0]:1.8E-5)[&label=7.908358]:0.002434)[&label=15.726797]:0.003044,((Fwx1l3DFrQ:8.0E-6,(NX8qEEG5Ei:0.005361,tMDeWYqnH1:0.002126)[&label=3.826077]:0.001038)[&label=67.68036]:0.009812,(9x7hgKhyBj:0.0,(0ua1T3CQRD:5.0E-6,(yajbPjxcUO:0.002694,(Nc5udqqHlx:0.0,mP9BZv3JIy:0.03621)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=0.0]:5.0E-6)[&label=0.0]:0.001926)[&label=5.48299]:0.001915)[&label=0.0]:1.0E-6,(VvuBv2HxHX:0.011884,(hTinBtEcCu:0.001306,3c7proGBSI:0.00599)[&label=0.092295]:0.00136)[&label=3.853491]:0.001955)[&label=19.022964]:0.003949)[&label=2.332155]:0.001954)[&label=95.056837]:0.03363)[&label=8.742536]:0.010016)[&label=1.299485]:0.001481,((o8ObIF2eWb:0.0,MvKMCU5k9r:9.0E-6)[&label=37.267174]:0.010285,(ygqYUTWofu:0.030066,HzFCc29awN:0.002006)[&label=54.758333]:0.015264)[&label=4.748793]:0.003916)[&label=11.664966]:0.016945,((VO23IWhLcR:0.002653,(EJJeIzuPwq:0.002013,(J4WeHZRF9t:0.0,(g8vqsQpQad:0.0,(UCikCrNCJa:0.0,(ugbRZYiU1T:0.002667,(qDX7nqIcDB:0.0,(9JZ7cfk083:0.005356,(sz6eOwuHci:0.005337,C90KEN6ueE:0.0)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=0.0]:0.0)[&label=0.0]:0.001502)[&label=0.021153]:1.33E-4,(r2fgCCqe29:0.003061,t38STF6qI5:0.012665)[&label=0.0]:0.0)[&label=10.767917]:0.017727)[&label=196.996021]:0.087922,((cVHfvxv0iH:0.01392,(g6uJyUNg55:1.07E-4,(IB1KmqDUsM:0.008591,(bIBYb3CgEC:0.006172,(ELmeroeTqR:0.004886,ozGYTfX7P2:0.002263)[&label=2.828875]:9.11E-4)[&label=6.220617]:0.002887)[&label=5.191007]:0.008298)[&label=10.228026]:0.011534)[&label=54.084638]:0.021884,(Q8uptRfW7P:0.005467,NZSn5UILmj:8.71E-4)[&label=16.96304]:0.006434)[&label=15.251078]:0.022094)[&label=3.921289]:0.007717)[&label=6.696824]:0.004362)[&label=10.391736]:0.037255)[&label=14.641555]:0.116334)[&label=2.923769]:0.069159)[&label=0.73707]:0.311958)[&label=1.963137]:0.237966)[&label=14.021553]:0.08578);
+end;
+
+begin figtree;
+	set appearance.backgroundColorAttribute="Default";
+	set appearance.backgroundColour=#ffffff;
+	set appearance.branchColorAttribute="User selection";
+	set appearance.branchColorGradient=false;
+	set appearance.branchLineWidth=1.0;
+	set appearance.branchMinLineWidth=0.0;
+	set appearance.branchWidthAttribute="Fixed";
+	set appearance.foregroundColour=#000000;
+	set appearance.hilightingGradient=false;
+	set appearance.selectionColour=#2d3680;
+	set branchLabels.colorAttribute="User selection";
+	set branchLabels.displayAttribute="Branch times";
+	set branchLabels.fontName="sansserif";
+	set branchLabels.fontSize=8;
+	set branchLabels.fontStyle=0;
+	set branchLabels.isShown=false;
+	set branchLabels.significantDigits=4;
+	set layout.expansion=0;
+	set layout.layoutType="RECTILINEAR";
+	set layout.zoom=0;
+	set legend.attribute=null;
+	set legend.fontSize=10.0;
+	set legend.isShown=false;
+	set legend.significantDigits=4;
+	set nodeBars.barWidth=4.0;
+	set nodeBars.displayAttribute=null;
+	set nodeBars.isShown=false;
+	set nodeLabels.colorAttribute="User selection";
+	set nodeLabels.displayAttribute="Node ages";
+	set nodeLabels.fontName="sansserif";
+	set nodeLabels.fontSize=8;
+	set nodeLabels.fontStyle=0;
+	set nodeLabels.isShown=false;
+	set nodeLabels.significantDigits=4;
+	set nodeShapeExternal.colourAttribute=null;
+	set nodeShapeExternal.isShown=false;
+	set nodeShapeExternal.minSize=10.0;
+	set nodeShapeExternal.scaleType=Width;
+	set nodeShapeExternal.shapeType=Circle;
+	set nodeShapeExternal.size=4.0;
+	set nodeShapeExternal.sizeAttribute=null;
+	set nodeShapeInternal.colourAttribute=null;
+	set nodeShapeInternal.isShown=false;
+	set nodeShapeInternal.minSize=10.0;
+	set nodeShapeInternal.scaleType=Width;
+	set nodeShapeInternal.shapeType=Circle;
+	set nodeShapeInternal.size=4.0;
+	set nodeShapeInternal.sizeAttribute=null;
+	set polarLayout.alignTipLabels=false;
+	set polarLayout.angularRange=0;
+	set polarLayout.rootAngle=0;
+	set polarLayout.rootLength=100;
+	set polarLayout.showRoot=true;
+	set radialLayout.spread=0.0;
+	set rectilinearLayout.alignTipLabels=false;
+	set rectilinearLayout.curvature=0;
+	set rectilinearLayout.rootLength=100;
+	set scale.offsetAge=0.0;
+	set scale.rootAge=1.0;
+	set scale.scaleFactor=1.0;
+	set scale.scaleRoot=false;
+	set scaleAxis.automaticScale=true;
+	set scaleAxis.fontSize=8.0;
+	set scaleAxis.isShown=false;
+	set scaleAxis.lineWidth=1.0;
+	set scaleAxis.majorTicks=1.0;
+	set scaleAxis.minorTicks=0.5;
+	set scaleAxis.origin=0.0;
+	set scaleAxis.reverseAxis=false;
+	set scaleAxis.showGrid=true;
+	set scaleBar.automaticScale=true;
+	set scaleBar.fontSize=10.0;
+	set scaleBar.isShown=true;
+	set scaleBar.lineWidth=1.0;
+	set scaleBar.scaleRange=0.0;
+	set tipLabels.colorAttribute="User selection";
+	set tipLabels.displayAttribute="Names";
+	set tipLabels.fontName="sansserif";
+	set tipLabels.fontSize=8;
+	set tipLabels.fontStyle=0;
+	set tipLabels.isShown=true;
+	set tipLabels.significantDigits=4;
+	set trees.order=false;
+	set trees.orderType="increasing";
+	set trees.rooting=true;
+	set trees.rootingType="Midpoint";
+	set trees.transform=false;
+	set trees.transformType="cladogram";
+end;
+
